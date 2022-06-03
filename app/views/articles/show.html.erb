@@ -1,17 +1,13 @@
 <h1><%= @article.title %></h1>
 
 <p><%= @article.body %></p>
-<% if current_user == @article.user %>
+<% if current_user.email == @article.user.email %>
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
   <li><%= link_to "Destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-  <li><%= p @article.user%>
-  </li>
-    <li><%= p current_user%>
-  </li>
 </ul>
 <%end%>
 
