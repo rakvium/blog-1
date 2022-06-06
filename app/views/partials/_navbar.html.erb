@@ -1,7 +1,5 @@
 <!-- Navbar -->
 <body>
-<link href='./style.css' rel='stylesheet'>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- Container wrapper -->
  
@@ -24,32 +22,32 @@
         <!-- Left links -->
          <% if user_signed_in? %>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "home",
-        root_path, class:"nav-item" %>
-        </li>
 
-        <li class="nav-item">
-          <%= link_to "blogs",
-        root_path, class:"nav-item" %>
-        </li>
 
-        <li class="nav-item">
-          <%= link_to "log_out",
-        destroy_user_session_url, method: :delete, class:"nav-item" %>
-        </li>
+          <li>
+            <%= link_to "blogs",
+            articles_path, class:"nav-link" %>
+           </li>
+
+          <li>
+            <%= link_to "eddit profile",
+              edit_user_registration_path, class:"nav-link" %>
+          </li>
+
+          <li>
+            <%= link_to "log_out",
+        destroy_user_session_url, method: :delete, class:"nav-link" %>
+           </li>
+
+
        </ul>
        <% else %>
        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li>
           <%= link_to "home",
-        root_path, class:"nav-item" %>
+        root_path, class:"nav-link" %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to "blogs",
-        root_path, class:"nav-item" %>
-        </li>
        </ul>
        <%end%>
       <!-- Left links -->
