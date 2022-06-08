@@ -1,5 +1,5 @@
-
 <% unless comment.archived? %>
+<div class='comment'>
   <p>
     <strong>Commenter:</strong>
     <%= comment.commenter %>
@@ -9,12 +9,15 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+  </div>
+<div class='destroy'>
 <% end %>
-<% if user_signed_in? %>
+<%if user_signed_in? && comment.article.user_id == current_user[:id]%>
 <p>
   <%= link_to "Destroy Comment", [comment.article, comment], data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               } %>
-<%end%>
 </p>
+<%end%>
+</div>

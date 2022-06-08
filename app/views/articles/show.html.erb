@@ -1,20 +1,20 @@
 <h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
+<p class='article'><%= @article.body %></p>
 <% if user_signed_in? && current_user == @article.user %>
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
+<div class='blogeddit'>
+  <p><%= link_to "Edit", edit_article_path(@article) %></p>
+  <p><%= link_to "Destroy", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-  </ul>
+                  } %></p>
+                  </div>
 <%end%>
 
 <h2>Comments</h2>
 <%= render @article.comments %>
 
 <%if user_signed_in?%>
-<h2>Add a comment:</h2>
+<h2 class='addcomment'>Add a comment:</h2>
 <%= render 'comments/form' %>
 <%end%>

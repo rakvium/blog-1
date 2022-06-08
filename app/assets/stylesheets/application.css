@@ -13,3 +13,65 @@
  *= require_tree .
  *= require_self
  */
+.comment {
+  color: black;
+  border: 3px solid rgb(246, 242, 242);
+  padding: 20px 5px;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+    box-shadow: 5px 2px 5px 5px #cacaca;
+  border-radius: 25px
+}
+
+ 
+html,
+body {
+  padding: 20px;
+}
+
+
+.destroy p {
+  padding-left: 50px;
+  color: grey;
+  padding: 5px;
+  width:150px;
+  position: relative;
+  left: 50px;
+  
+
+}
+
+.destroy p:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 10px #aca6a6;
+  border-radius: 25px
+}
+
+.newcomment {
+  border: 3px solid rgb(246, 242, 242);
+  padding: 20px;
+   box-shadow: 5px 10px #aca6a6;
+  border-radius: 25px
+}
+
+.newcomment p{
+  position: relative;
+
+}
+
+.addcomment{
+  color: rgb(255, 255, 255);
+  position: relative;
+  left: 20px;
+  text-shadow: 2px 2px #aca6a6
+}
+
+
+.article{
+  color: black;
+  border: 3px solid rgb(246, 242, 242);
+  padding: 20px 10px;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 10px #aca6a6;
+}
