@@ -75,3 +75,20 @@ body {
   background-color: rgb(255, 255, 255);
   box-shadow: 5px 10px #aca6a6;
 }
+
+.title{
+  font-family: Apple Chancery, cursiv;
+  text-shadow: 2px 2px #aca6a6;
+}
+
+
+.blogcounter{
+  color: rgb(210, 209, 209);
+  font-size: xx-large;
+  border: 3px;
+  padding: 20px 10px;
+  text-shadow: 2px 2px #a9a7a7;
+}
+
+
+

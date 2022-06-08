@@ -1,23 +1,11 @@
 <body>
-<h1>Articles</h1>
-
-Our blog has <%= Article.public_count %> articles and counting!
+<p class= 'blogcounter'> Our blog has <%= Article.public_count %> articles and counting! </p>
 <% if user_signed_in? %>
+<div class="newarticle">
  <%= link_to "New Article", new_article_path %>
-<%else%>
-<ul>
-  <li>
-    <%= link_to "sign up",
-    new_user_registration_path, class:"nav-link" %>
-  </li>
-
-  <li>
-    <%= link_to "sign in",
-    new_user_session_path, class:"nav-link" %>
-  </li>
-</ul>
+ </div>
 <%end%>
-
+<h1 class='title'>ARTICLES</h1>
 
 
 <body>
