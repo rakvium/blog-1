@@ -1,7 +1,9 @@
 <h1><%= @article.title %></h1>
-
 <p class='article'><%= @article.body %></p>
+<p class='author'> author : <%= @article.user.email %> </p>
+
 <% if user_signed_in? && current_user == @article.user %>
+
 <div class='blogeddit'>
   <p><%= link_to "Edit", edit_article_path(@article) %></p>
   <p><%= link_to "Destroy", article_path(@article), data: {
@@ -10,7 +12,6 @@
                   } %></p>
                   </div>
 <%end%>
-
 <h2>Comments</h2>
 <%= render @article.comments %>
 
