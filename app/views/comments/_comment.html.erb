@@ -1,18 +1,15 @@
+  <% @article.comments.each do |comment| %>
 <% unless comment.archived? %>
 <div class='comment'>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
+    <strong><%= link_to "#{User.find(comment.user_id).email.split("@")[0]}:", user_path(comment.user_id)%> </strong>
+    <br>
     <%= comment.body %>
-  </p>
   </div>
-<div class='destroy'>
 <% end %>
-<%if user_signed_in? && comment.article.user_id == current_user[:id]%>
+
+<div class='destroy'>
+
+<%if user_signed_in? && comment.user_id == current_user[:id]%>
 <p>
   <%= link_to "Destroy Comment", [comment.article, comment], data: {
                 turbo_method: :delete,
@@ -20,4 +17,6 @@
               } %>
 </p>
 <%end%>
+<%end%>
+
 </div>

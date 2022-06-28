@@ -3,6 +3,8 @@
 <% if user_signed_in? %>
 <div class="newarticle">
  <%= link_to "New Article", new_article_path %>
+ <%= link_to "my articles", user_path(current_user[:id])%>
+
  </div>
 <%end%>
 <h1 class='title'>ARTICLES</h1>

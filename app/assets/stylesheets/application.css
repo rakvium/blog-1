@@ -24,11 +24,14 @@
 }
 
  
-html,
-body {
-  padding: 20px;
-}
+.articles {  
+  box-sizing: content-box;
+  width: 300px;
+  height: 150px !important;
+  background-color: aqua;
+  margin: 10px;
 
+}
 
 .destroy p {
   padding-left: 50px;

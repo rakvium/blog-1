@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root "articles#index"
   devise_scope :user do
@@ -7,4 +8,5 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  resources :users
 end

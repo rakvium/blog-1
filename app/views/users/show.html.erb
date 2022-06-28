@@ -1,3 +1,6 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
 
   <% @articles.each do |article| %>
     <% unless article.archived? %>
@@ -10,4 +13,6 @@
      </table>
     <% end %>
   <% end %>
-<%= will_paginate @articles%>
+
+  <%= link_to "create new article", new_article_path %>
+

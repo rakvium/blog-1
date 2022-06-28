@@ -1,6 +1,8 @@
 <h1><%= @article.title %></h1>
 <p class='article'><%= @article.body %></p>
-<p class='author'> author : <%= @article.user.email %> </p>
+<p class='author'> author : <%= link_to @article.user.email.split("@")[0], user_path(@article.user)
+  %> </p>
+
 
 <% if user_signed_in? && current_user == @article.user %>
 
@@ -13,9 +15,10 @@
                   </div>
 <%end%>
 <h2>Comments</h2>
-<%= render @article.comments %>
+<%= render 'comments/comment' %>
 
 <%if user_signed_in?%>
 <h2 class='addcomment'>Add a comment:</h2>
 <%= render 'comments/form' %>
 <%end%>
+
