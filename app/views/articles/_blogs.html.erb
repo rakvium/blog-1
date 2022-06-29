@@ -1,6 +1,5 @@
-
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
+<% @articles.each do |article| %>
+    <% unless article.archived? || (article.private? && article.user != current_user) %>
       <table class='articles'>
         <td><%= link_to article.title, article %></td>
        </tr>
@@ -9,5 +8,17 @@
       </tr>
      </table>
     <% end %>
+    <% if user_signed_in? && current_user == article.user %>
+
+<div class='blogeddit'>
+  <%= link_to "Edit", edit_article_path(article) %> <%= link_to "Destroy", article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+                  </div>
+<%end%>
   <% end %>
+    <div class="digg_pagination center">
+    
 <%= will_paginate @articles%>
+</div>

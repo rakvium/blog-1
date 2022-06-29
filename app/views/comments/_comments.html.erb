@@ -1,4 +1,4 @@
-  <% @article.comments.each do |comment| %>
+  <% @comments.each do |comment| %>
 <% unless comment.archived? %>
 <div class='comment'>
     <strong><%= link_to "#{User.find(comment.user_id).email.split("@")[0]}:", user_path(comment.user_id)%> </strong>
@@ -19,4 +19,3 @@
 <%end%>
 <%end%>
 
-</div>

@@ -1,16 +1,24 @@
 class CommentsController < ApplicationController
   before_action :get_article
-
+  require 'will_paginate/array'
 
 
   def index
-    @comments = @article.comments.all
+    @comments = @article.comments
+  end
+
+  def show
+    @comments = @article.comments
   end
 
   def create
     @article = Article.find(params[:article_id])
-    comment = @article.comments.create(comment_params.merge(user_id: current_user.id))
-    redirect_to @article
+    @comment = @article.comments.create(comment_params.merge(user_id: current_user.id))
+    if @article.save
+      redirect_to @article
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -21,8 +29,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def get_plan
-      @article = Article.find(params[:id])
+    def get_article
+      @article = Article.find(params[:article_id])
     end
 
     def comment_params

@@ -1,17 +1,17 @@
 <body>
 <p class= 'blogcounter'> Our blog has <%= Article.public_count %> articles and counting! </p>
+<h1 class='title'>ARTICLES</h1>
+   <%=render partial: 'blogs'%>
+
 <% if user_signed_in? %>
 <div class="newarticle">
  <%= link_to "New Article", new_article_path %>
  <%= link_to "my articles", user_path(current_user[:id])%>
-
  </div>
 <%end%>
-<h1 class='title'>ARTICLES</h1>
 
 
 <body>
-   <%=render partial: 'blogs'%>
     <%= yield %>
 </body>
 

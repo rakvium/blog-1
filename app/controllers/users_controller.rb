@@ -3,12 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @pagy, @articles = pagy(@user.articles)
-
+    @articles = @user.articles.paginate(page: params[:page], per_page: 3) 
   end
   
   def index
-    @articles = @user.articles.paginate(page: params[:page], per_page: 2) 
+
   end
 
   private

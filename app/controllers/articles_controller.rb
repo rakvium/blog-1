@@ -1,15 +1,12 @@
 class ArticlesController < ApplicationController
 
-
-
   def index
-    @articles = Article.all.paginate(page: params[:page], per_page: 1)
+    @articles = Article.all.paginate(page: params[:page], per_page: 10)
   end
   
-
   def show
     @article = Article.find(params[:id])
-  
+    @comments = @article.comments.paginate(page: params[:page], per_page: 3)
   end
 
   def new
@@ -45,7 +42,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to root_path, status: :see_other
+    session[:return_to] = request.referer
   end
 
   private
