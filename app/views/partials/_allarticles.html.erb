@@ -1,0 +1,30 @@
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">content</th>
+      <th scope="col">created_at</th>
+      <th scope="col">status</th>
+      <th scope="col">author</th>
+
+    </tr>
+  </thead>  
+  <tbody>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <th scope="row"><%= article.id %></th>
+      <td><%= link_to article.title, article_path(article) %></td>
+      <td><%= article.body.split(" ").first(10).join(" ") %></td>
+      <td><%= article.created_at %></td>
+      <td><%= article.status %></td>
+      <td><%= link_to article.user.email, user_path(article.user_id) %></td>
+
+    </tr>
+    
+ 
+<% end %>
+ </tbody>
+</table>

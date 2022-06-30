@@ -1,13 +1,13 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div  class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left links -->
          <% if user_signed_in? %>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
           <li>
-            <%= link_to "blogs",
+            <%= link_to "articles",
             articles_path, class:"nav-link" %>
            </li>
 
@@ -16,10 +16,25 @@
               edit_user_registration_path, class:"nav-link" %>
           </li>
 
+       
+           <li>
+            <%= link_to "profile",  user_path(current_user), class:"nav-link" %>
+          </li>
+
+        <% if policy(User).index? %>
+           <li>             
+            <%= link_to "admin panel",  admin_path(current_user), class:"nav-link" %>
+          </li>  
+          <% end %>
+            
+
+
           <li>
             <%= link_to "log_out",
         destroy_user_session_url, method: :delete, class:"nav-link" %>
            </li>
+
+          
 
 
        </ul>
@@ -40,7 +55,8 @@
 
        </ul>
        <%end%>
-    </div>
+
  
-</nav>
+    </div>
+  </nav>
 </body>

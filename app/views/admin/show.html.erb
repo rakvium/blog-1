@@ -2,11 +2,12 @@
 <p> email: <%= @user.email%> </p>
 <p>role: <%= @user.role %></p>
 
-<%= render 'articles/articles', articles: @articles %>
 
 
   <%= link_to "create new article", new_article_path %>
   <%= link_to "all articles", articles_path %>
+  <% if policy(User).index? %>
+    <%= render 'users/users', users: @users  %>
+    <%= render 'partials/allarticles', articles: @articles%>
+  <%end %>
 
-
-       

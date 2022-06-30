@@ -46,7 +46,12 @@ gem "bootsnap", require: false
 
 gem 'will_paginate', '~> 3.3'
 
-gem 'pagy'
+
+gem "pundit"
+
+gem 'ransack'
+
+
 
 
 # Use Sass to process CSS

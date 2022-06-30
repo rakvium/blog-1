@@ -1,7 +1,13 @@
 class ArticlesController < ApplicationController
 
-  def index
-    @articles = Article.all.paginate(page: params[:page], per_page: 10)
+    def index
+      @q = Article.ransack(params[:q])
+      @articles = @q.result.all.paginate(page: params[:page], per_page: 10)
+    end
+   
+
+  def search
+    @articles =  Article.where("title LIKE ?", "%" + params[:q] + "%").paginate(page: params[:page], per_page: 10)
   end
   
   def show
@@ -12,6 +18,8 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
+
+
 
   def create
     @article = Article.new(article_params)

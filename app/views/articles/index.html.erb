@@ -1,7 +1,7 @@
 <body>
-<p class= 'blogcounter'> Our blog has <%= Article.public_count %> articles and counting! </p>
-<h1 class='title'>ARTICLES</h1>
-   <%=render partial: 'blogs'%>
+<p> Our blog has <%= Article.public_count %> articles and counting! </p>
+
+
 
 <% if user_signed_in? %>
 <div class="newarticle">
@@ -9,6 +9,12 @@
  <%= link_to "my articles", user_path(current_user[:id])%>
  </div>
 <%end%>
+<%= search_form_for @q, remote: true do |f| %>
+  <%= f.search_field :title_or_body_cont, placeholder: 'search for articles' %>
+  <%= f.submit %>
+<% end %>
+   <%=render partial: 'articles'%>
+
 
 
 <body>

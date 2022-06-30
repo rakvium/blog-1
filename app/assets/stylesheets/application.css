@@ -48,21 +48,11 @@
 
 
 
-
 .newcomment p{
   position: relative;
 
 }
 
- 
-.articles {  
-  box-sizing: content-box;
-  width: 800px;
-  height: 150px !important;
-  background-color: aqua;
-  margin: 10px;
-
-}
 
 .destroy p {
   padding-left: 50px;
@@ -99,11 +89,11 @@
   color: black;
   border: 3px solid rgb(246, 242, 242);
   padding: 20px 10px;
-  margin: 20px;
+  margin: 70px;
   background-color: rgb(255, 255, 255);
   box-shadow: 5px 10px #aca6a6;
+  width: 800px;
 }
-
 
 
 .blogcounter{
