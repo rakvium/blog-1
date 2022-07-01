@@ -1,28 +1,44 @@
-    <table >
+    <table class = 'table' >
        <thead>
-    <tr>
+    <tr class = 'row'>
       <th scope="col">article</th>
       </tr> 
       </thead>
       <% @articles.each do |article| %>
     <% unless article.archived? || (article.private? && article.user != current_user) %>    
-      <tbody class='article'>
-      <td><%= link_to article.title, article %></td>
-      <td>by: <%= link_to article.user.email, user_path(article.user)%></td>
+      <tbody>
+      <tr class = 'article_info'>
+      <td class='title'><p><%=article.title.capitalize%><p> 
+      </td>
+      <tr class = 'article_info'><td>by: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %></td></tr>
+      
        </tr>
-        <tr>
-       <td><%= article.body.split(" ").first(30).join(" ")%></td>
-      </tr>
-      </tbody>
-    <% if user_signed_in? && current_user == article.user %>
+        <tr class = 'article_body'>
+       <td><%= article.body.split(" ").first(30).join(" ")%> 
+       <br>
+       <%= button_to  "read more", article_url(article), :method => :get, class:"btn btn-outline-light"%>
+</td>
 
-<div class='blogeddit'>
-  <%= link_to "Edit", edit_article_path(article) %> <%= link_to "Destroy", article_path(article), data: {
+      </tr>
+
+      <tr class = 'article_functions'>
+             <td> <% if user_signed_in? && current_user == article.user %>
+
+<div class='blogeddit'>  
+
+  <%= link_to "Edit", edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
+  <%= link_to "Destroy", article_path(article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>
+                  }, style: 'color: black;', class: 'btn btn-outline-secondary' %>
                   </div>
-<%end%>  
+<%end%> </td>
+
+      </tr>
+
+
+      </tbody>
+     
   <% end %>
 
   <% end %> 

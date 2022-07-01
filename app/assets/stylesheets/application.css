@@ -26,32 +26,6 @@
 }
 
  
-.articles {  
-  box-sizing: content-box;
-  width: 800px;
-  height: 150px !important;
-  background-color: aqua;
-  margin: 10px;
-
-}
-
-.destroy p {
-  padding-left: 50px;
-  color: grey;
-  padding: 5px;
-  width:150px;
-  position: relative;
-  left: 50px;
-  
-
-}
-
-
-
-.newcomment p{
-  position: relative;
-
-}
 
 
 .destroy p {
@@ -64,13 +38,12 @@
   
 
 }
+
 
 .destroy p:hover {
   position: relative;
 
 }
-
-
 
 .newcomment p{
   position: relative;
@@ -87,15 +60,39 @@
 
 .article{
   color: black;
+  background-color: #615b5b62;
   border: 3px solid rgb(246, 242, 242);
   padding: 20px 10px;
-  margin: 70px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 5px 10px #aca6a6;
-  width: 800px;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.article_body {
+  color: rgb(255, 255, 255);
+  background-color: #3b2727;
+
+}
+
+tbody {
+background-color: #b0b0b3;}
+
+.title {
+  font-style: italic;
+  font-size: 30px;
+  color: #3b2727;
+
 }
 
 
+.article_functions {
+  color: black;
+  background-color: #ffffff;
+
+}
+.article_info {
+  color: black;
+  background-color: #dadada;
+}
 .blogcounter{
   color: rgb(210, 209, 209);
   font-size: xx-large;

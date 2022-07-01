@@ -50,6 +50,7 @@ gem 'will_paginate', '~> 3.3'
 gem "pundit"
 
 gem 'ransack'
+gem 'jquery-rails'
 
 
 

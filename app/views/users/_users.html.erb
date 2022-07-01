@@ -1,11 +1,16 @@
+<%= search_form_for @q, remote: true do |f| %>
+  <%= f.search_field :user_name_or_email_or_role, placeholder: 'search for user' %>
+  <%= f.submit %>
+<% end %>
+
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">username</th>
-      <th scope="col">email</th>
-      <th scope="col">created_at</th>
-      <th scope="col">role</th>
+      <th scope="col"><%= sort_link(@q, :id, "id", default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :user_name, "username", default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :email, "email", default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :created_at, "registration date:", default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :role, "role", default_order: :asc) %></th>
 
     </tr>
   </thead>  
@@ -21,7 +26,7 @@
       <td><%= user.created_at %></td>
       <td><%= link_to user.role, edit_user_registration_path(user) %></td>
       <td><%= link_to "edit user details", edit_user_registration_path(user) %></td>
-      <td><%= button_to "Cancel my account", registration_path(user),form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
+      <td><%= button_to "Cancel account", registration_path(user),form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
     </tr>
     
  

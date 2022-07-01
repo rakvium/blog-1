@@ -7,6 +7,10 @@
 
   <%= link_to "create new article", new_article_path %>
   <%= link_to "all articles", articles_path %>
+    <% if policy(User).index? %>
+    <%= link_to "users", users_path %>
+  <%end %>
+
 
 
        

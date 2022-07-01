@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">title</th>
+      <th scope="col"><%= sort_link(@q, :title, "Title", default_order: :asc) %></th>
       <th scope="col">content</th>
       <th scope="col">created_at</th>
       <th scope="col">status</th>
@@ -21,9 +21,20 @@
       <td><%= article.created_at %></td>
       <td><%= article.status %></td>
       <td><%= link_to article.user.email, user_path(article.user_id) %></td>
+      <td><%= link_to "Edit", edit_article_path(article) %></td>
+      <td><%= link_to "Destroy", article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
 
     </tr>
     
+
+
+ 
+
+
+
  
 <% end %>
  </tbody>

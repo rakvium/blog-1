@@ -3,9 +3,11 @@ class AdminController < ApplicationController
   end
 
   def show
+    @q = Article.ransack(params[:q])
+    @articles = Article.all
+    @articles = @q.result(distinct: true)
     @user = current_user
     @users = User.all
-    @articles = Article.all
   end
 
   def edit

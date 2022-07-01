@@ -1,20 +1,17 @@
 <body>
 <p> Our blog has <%= Article.public_count %> articles and counting! </p>
 
-
-
-<% if user_signed_in? %>
-<div class="newarticle">
- <%= link_to "New Article", new_article_path %>
- <%= link_to "my articles", user_path(current_user[:id])%>
- </div>
-<%end%>
 <%= search_form_for @q, remote: true do |f| %>
   <%= f.search_field :title_or_body_cont, placeholder: 'search for articles' %>
   <%= f.submit %>
 <% end %>
-   <%=render partial: 'articles'%>
 
+<% if user_signed_in? && current_user.role == "admin" %>
+  <%= render "partials/allarticles", articles: @articles%>
+<%else%>
+
+   <%=render partial: 'articles'%>
+<%end%>
 
 
 <body>
