@@ -7,5 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
  
-   User.create(user_name: 'Emanuel', password: 'mariam', email: "admin@admin.ad", role: '2')
+   User.create(user_name: 'Emanuel', password: 'mariam', email: "admin@admin.ad", role: 2)
+   categories = Category.create([{ name: 'random' }, { name: 'art' }])
+
 

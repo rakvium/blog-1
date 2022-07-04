@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   get 'admin/index'
   get 'admin/show'
   get 'admin/edit'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'admin/new'
   get 'users/show'
   devise_for :users
+  resources :categories
+
   root "articles#index"
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

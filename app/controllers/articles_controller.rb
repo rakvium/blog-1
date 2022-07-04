@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @categories = Category.all.map{|c| [c.name, c.id]}
     @article = Article.new
   end
 
@@ -24,6 +25,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    @categories = Category.all
+    @articlecategory = Articlecategory.new(article_id: @article.id, category_id:@categories.where('id = ?', params[:category_id].to_i))
 
     if @article.save
       redirect_to @article

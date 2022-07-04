@@ -9,7 +9,7 @@
 
   <div>
     <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.rich_text_area :body %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -18,6 +18,11 @@
   <div>
     <%= form.submit %>
   </div>
+   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(@categories)%>
+  </div>
+
   <div>
   <%= form.label :status %><br>
   <%= form.select :status, ['public', 'private', 'archived', 'members only'], selected: 'public' %>

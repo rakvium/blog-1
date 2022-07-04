@@ -14,7 +14,7 @@
       
        </tr>
         <tr class = 'article_body'>
-       <td><%= article.body.split(" ").first(30).join(" ")%> 
+       <td><%= article.body.to_s.split(" ").first(30).join(" ")%> 
        <br>
        <%= button_to  "read more", article_url(article), :method => :get, class:"btn btn-outline-light"%>
 </td>
