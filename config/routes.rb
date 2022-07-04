@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   resources :categories
-  get 'admin/index'
-  get 'admin/show'
-  get 'admin/edit'
-  get 'admin/update'
-  get 'admin/new'
-  get 'users/show'
+
   devise_for :users
   resources :categories
 
@@ -18,8 +13,11 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  get "/admin/:id", to: "admin#show",  as: 'admin'
   get "/search", to: "articles#search"
 
+  scope "admin" do
+    delete "users/:id", to: "admin#user_destroy", via: 'delete', as: 'admin_destroy_user'
+    get ":id", to: "admin#show",  as: 'admin'
 
+  end
 end

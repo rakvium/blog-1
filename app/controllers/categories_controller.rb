@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
 
+  def pundit_user
+    User.find(current_user.id)
+  end
   # GET /categories or /categories.json
   def index
     @categories = Category.all
@@ -8,6 +11,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
+    @q = @category.articles.ransack(params[:q])
+    @articles = @q.result.all.paginate(page: params[:page], per_page: 10)  end
   end
 
   # GET /categories/new
@@ -65,6 +70,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.fetch(:category, {})
+      params.require(:category).permit(:name)
     end
 end

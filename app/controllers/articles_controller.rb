@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
     def index
       @q = Article.ransack(params[:q])
       @articles = @q.result.all.paginate(page: params[:page], per_page: 10)
+      @category = Category.all
+
     end
    
 
@@ -16,7 +18,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @categories = Category.all.map{|c| [c.name, c.id]}
+    @categories = Category.all
     @article = Article.new
   end
 
@@ -25,9 +27,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
-    @categories = Category.all
-    @articlecategory = Articlecategory.new(article_id: @article.id, category_id:@categories.where('id = ?', params[:category_id].to_i))
-
     if @article.save
       redirect_to @article
     else
@@ -61,6 +60,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status, :user_id)
+      params.require(:article).permit(:title, :status, :body, categories_attributes: [:name, :destroy], category_ids: [])
     end
 end

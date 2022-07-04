@@ -13,9 +13,22 @@ class AdminController < ApplicationController
   def edit
   end
 
+  def user_destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path, status: 303
+  end
+
   def update
   end
 
   def new
   end
+
+  private
+
+  def secure_params
+    params.require(:user).permit(:username, :email, :role)
+  end
+  
 end

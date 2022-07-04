@@ -21,6 +21,10 @@
       <td><%= article.created_at %></td>
       <td><%= article.status %></td>
       <td><%= link_to article.user.email, user_path(article.user_id) %></td>
+       <td><% Category.where(id: article.category_ids).find_each do |category|%> 
+      <%= link_to category.name, category_path(category.id) %>   
+      <%end%></td>   
+
       <td><%= link_to "Edit", edit_article_path(article) %></td>
       <td><%= link_to "Destroy", article_path(article), data: {
                     turbo_method: :delete,
@@ -28,14 +32,7 @@
                   } %></td>
 
     </tr>
-    
-
-
- 
-
-
-
- 
+  
 <% end %>
  </tbody>
 </table>

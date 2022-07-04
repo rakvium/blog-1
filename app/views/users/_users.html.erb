@@ -26,8 +26,9 @@
       <td><%= user.created_at %></td>
       <td><%= link_to user.role, edit_user_registration_path(user) %></td>
       <td><%= link_to "edit user details", edit_user_registration_path(user) %></td>
-      <td><%= button_to "Cancel account", registration_path(user),form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
-    </tr>
+<td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data:
+       {"turbo-method": :delete,  turbo_confirm: "You sure?" }, class: "btn btn-primary btn-md" %></td>
+    </tr>    </tr>
     
  
 <% end %>
