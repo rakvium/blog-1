@@ -1,9 +1,13 @@
-<body>
+<body class='general'>
 <p> Our blog has <%= Article.public_count %> articles and counting! </p>
 
+
+
+
+
 <%= search_form_for @q, remote: true do |f| %>
-  <%= f.search_field :title_or_body_cont, placeholder: 'search for articles' %>
-  <%= f.submit %>
+  <%= f.search_field :title_or_body_cont, placeholder: 'search for articles', class: "form-control"  %>
+  <%= f.submit%>
 <% end %>
 
 <% if user_signed_in? && current_user.role == "admin" %>

@@ -24,8 +24,7 @@
       <td><%= user.user_name %></td>
       <td><%= link_to user.email, user %></td>
       <td><%= user.created_at %></td>
-      <td><%= link_to user.role, edit_user_registration_path(user) %></td>
-      <td><%= link_to "edit user details", edit_user_registration_path(user) %></td>
+      <td><%= link_to user.role, admin_change_role_path(user) %></td>
 <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data:
        {"turbo-method": :delete,  turbo_confirm: "You sure?" }, class: "btn btn-primary btn-md" %></td>
     </tr>    </tr>

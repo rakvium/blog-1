@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if @article.save
       redirect_to @article
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @article
     end
   end
 

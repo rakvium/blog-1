@@ -1,5 +1,5 @@
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; top: 0; width: 100%;">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="position: fixed; top: 0; width: 100%;">
     <div  class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left links -->
          <% if user_signed_in? %>
@@ -8,22 +8,27 @@
 
           <li>
             <%= link_to "articles",
-            articles_path, class:"nav-link" %>
+            articles_path, class:"nav-link text-light" %>
+           </li>
+
+             <li>
+            <%= link_to "categories",
+            categories_path, class:"nav-link text-white" %>
            </li>
 
           <li>
             <%= link_to "eddit profile",
-              edit_user_registration_path, class:"nav-link" %>
+              edit_user_registration_path, class:"nav-link text-light" %>
           </li>
 
        
            <li>
-            <%= link_to "profile",  user_path(current_user), class:"nav-link" %>
+            <%= link_to "profile",  user_path(current_user), class:"nav-link text-light" %>
           </li>
 
         <% if policy(User).index? %>
            <li>             
-            <%= link_to "admin panel",  admin_path(current_user), class:"nav-link" %>
+            <%= link_to "admin panel",  admin_path(current_user), class:"nav-link text-light" %>
           </li>  
           <% end %>
             
@@ -31,7 +36,7 @@
 
           <li>
             <%= link_to "log_out",
-        destroy_user_session_url, method: :delete, class:"nav-link" %>
+        destroy_user_session_url, method: :delete, class:"nav-link text-light font-weight-bold" %>
            </li>
 
           
@@ -39,18 +44,22 @@
 
        </ul>
        <% else %>
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li>
           <%= link_to "home",
-        root_path, class:"nav-link" %>
+        root_path, class:"nav-link text-light" %>
         </li>
+          <li>
+            <%= link_to "categories",
+            categories_path, class:"nav-link text-white" %>
+           </li>
         <li>
         <%= link_to "sign in",
-    new_user_session_path, class:"nav-link" %>
+    new_user_session_path, class:"nav-link text-light" %>
     </li>
     <li>
       <%= link_to "sign up",
-    new_user_registration_path, class:"nav-link" %>
+    new_user_registration_path, class:"nav-link text-light " %>
     </li>
 
        </ul>

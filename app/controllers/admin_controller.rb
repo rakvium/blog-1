@@ -19,7 +19,32 @@ class AdminController < ApplicationController
     redirect_to users_path, status: 303
   end
 
+  def change_role
+    @user = User.find(params[:id])
+  end
+
+  def make_admin
+    @user = User.find(params[:id])
+    @user.role = 'admin'
+    redirect_to users_path, status: 303
+  end
+
+  def make_user
+    @user = User.find(params[:id])
+    @user.role = 'user'
+    redirect_to users_path, status: 303
+  end
+
+  def make_member
+    @user = User.find(params[:id])
+    @user.role = 'member'
+    redirect_to users_path, status: 303
+  end
+
   def update
+    @user = User.find(params[:id])
+    @user.role = Role.find(params[:role])
+    redirect_to users_path
   end
 
   def new

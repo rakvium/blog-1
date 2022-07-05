@@ -14,7 +14,25 @@
  *= require_self
  */
 
+.forms{
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  position: relative;
+  margin: auto;
+}
+.actions{
+  margin-top: 20px;
+}
+.general {
+  background-color: #ffffff;
+  display: flex;
+  text-align: center;
+}
 
+.table{
+  margin: auto;
+}
  .comment {
   color: black;
   border: 3px solid rgb(246, 242, 242);

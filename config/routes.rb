@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/index'
   resources :categories
 
   devise_for :users
@@ -18,6 +19,12 @@ Rails.application.routes.draw do
   scope "admin" do
     delete "users/:id", to: "admin#user_destroy", via: 'delete', as: 'admin_destroy_user'
     get ":id", to: "admin#show",  as: 'admin'
+    get "change_role/:id", to: "admin#change_role",  as: 'admin_change_role'
+    patch "make_admin/:id", to: "admin#make_admin", via: 'patch',  as: 'admin_make_admin'
+    patch "make_user/:id", to: "admin#make_user", via: 'patch', as: 'admin_make_user'
+    patch "make_member/:id", to: "admin#make_member", via: 'patch', as: 'admin_make_member'
 
+    get "article/approve/:id", to: "admin#article_approve",  as: 'admin_article_approve'
+    get "article/disapprove/:id", to: "admin#article_disapprove",  as: 'admin_article_disapprove'
   end
 end
