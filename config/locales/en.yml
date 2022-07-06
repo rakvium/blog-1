@@ -31,3 +31,72 @@
 
 en:
   hello: "Hello world"
+  welcome: "welcome bitch"
+  email: 'email'
+  password: 'password'
+  log in: "log in"
+  Log in: "Log in"
+  sign up: "sign up"
+  Sign up: Sign up
+  log_out: "log out"
+  edit: "edit"
+  delete: "delete"
+  categories: "categories"
+  home: "home"
+  eddit profile: "edit profile"
+  article: "article"
+  articles: "articles"
+  read more: "read more"
+  category: "category"
+  like: "like"
+  likes: "likes"
+  by: "by"
+  search: "search"
+  comments: "comments"
+  create comment: "create comment"
+  next: "next"
+  previous: "previous"
+  status: "status"
+  public: "public"
+  archived: "archived"
+  private: "private"
+  role: "role" 
+  title: "title"
+  content: "content"
+  created_at: "created_at"
+  author: "author"
+  approved: "approved"
+  create new article: " create new article"
+  all articles: "all articles"
+  users: "users"
+  destroy: "destroy"
+  all articles: "all articles"
+  Unhappy? Cancel your account: "Unhappy? Cancel your account"
+  Current password (we need your current password to confirm your changes): "Current password (we need your current password to confirm your changes)"
+  Password (leave blank if you don't want to change it): "Password (leave blank if you don't want to change it)"
+  back: "back"
+  Are you sure?: "Are you sure?"
+  members only: "members only"
+  empty if not approved: "empty if not approved"
+  body: "body"
+  liked: "liked"
+  search for articles: search for articles
+  Edit this category: Edit this category
+  Back to categories: Back to categories
+  Destroy this category:  Destroy this category
+  Destroy Comment: Destroy Comment
+  New password: New password
+  Confirm new password: Confirm new password
+  Change my password: Change my password
+  Update: Update
+  Cancel my account: Cancel my account
+  username: username
+  new-password: new-password
+  remember_me: remember_me
+  Forgot your password?: Forgot your password?
+  not approved: not approved
+  profile: profile
+  admin panel: admin panel
+  Edit Profile: Edit Profile
+  Log Out: Log Out
+

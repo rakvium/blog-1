@@ -1,0 +1,73 @@
+ge:
+  hello: "გამარჯობა"
+  welcome: "კეთილი იყოს თქვენი მობრძანება"
+  email: 'ელ-ფოსტა'
+  password: 'პაროლი'
+  log in: "შესვლა"
+  sign up: "რეგისტრაცია"
+  log_out: "გამოსვლა"
+  edit: "რედაქტირება"
+  Edit: "რედაქტირება"
+  delete: "წაშლა"
+  categories: "კატეგორიები"
+  home: "მთავარი გვერდი"
+  edit profile: "პროფილის რედაქტირება"
+  article: "სტატია"
+  articles: "სტატიები"
+  all articles: "ყველა სტატია"
+  read more: "წაკითხვა"
+  category: "კატეგორია"
+  like: "მოწონება"
+  likes: "მოწონებები"
+  by: "ავტორი"
+  search: "ძიება"
+  comments: "კომენტარები"
+  create comment: "დააკომენტარე"
+  next: "შემდეგი"
+  previous: "წინა"
+  status: "სტატუსი"
+  public: "საჯრო"
+  archived: "დაარქივებული"
+  private: "პირადი"
+  role: "როლი" 
+  title: "სათაური"
+  content: "კონტენტი"
+  created_at: "შექმნის თარიღი"
+  author: "ავტორი"
+  approved: "დადასტურებული"
+  create new article: "შექმენი ახალი სტატია"
+  users: "მომხმარებლები"
+  destroy: "წაშლა"
+  Destroy: "წაშლა"
+  Unhappy? Cancel your account: "უბედური ხარ? წაშალე ანგარიში"
+  Current password (we need your current password to confirm your changes): "მიმდინარე პაროლი (ცვლილებბეის დასადასტურებლად თქვენი პაროლი დაგვჭირდება)"
+  Password (leave blank if you don't want to change it): "პაროლი (დატოვეთ ცარიელი თუ არ გნებავთ შეცვლა)"
+  back: "უკან"
+  Are you sure?: "დარწმუნებული ხარ?"
+  members only: "მხოლოდ წევრებისთვის"
+  empty if not approved: "ცარიელი თუ არ არის დადასტურებული"
+  body: "ტექსტის არეა"
+  liked: მოწონებული
+  search for articles: მოძებნე სტატიები
+  Edit this category: კატეგორიის რედაქტირება
+  Back to categories: კატეგორიებში დაბრუნება
+  Destroy this category: კატეგორიის წაშლა
+  Destroy Comment: კომენტარის წაშლა
+  New password: ახალი პაროლი
+  Confirm new password: გაიმეორე პაროლი
+  Change my password: დადასტურება
+  Update: განახლება
+  Cancel my account: ანგარიშის წაშლა
+  username: მომხმარებლის სახელი
+  new-password: ახალი პაროლი
+  remember_me: დამიმახსოვრე
+  Log in: შესვლა
+  Sign up: რეგისტრაცია
+  Forgot your password?: დაგავიწყდა პაროლი?
+  not approved: დასადასტურებელი
+  profile: პროფილი
+  admin panel: ადმინის პანელი
+  sign in: შესვლა
+  edit Profile: პროფილოის რედაქტირება
+  log Out: გასვლა
+  

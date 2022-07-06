@@ -1,6 +1,6 @@
 <%= form_with model: article do |form| %>
   <div>
-    <%= form.label :title %><br>
+    <%= form.label t(:title) %><br>
     <%= form.text_field :title %>
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
@@ -8,7 +8,7 @@
   </div>
 
   <div>
-    <%= form.label :body %><br>
+    <%= form.label t(:body) %><br>
     <%= form.rich_text_area :body %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
@@ -17,20 +17,20 @@
 
  
    <div class ='form-group'>
-  <%= form.label :categories %>
+  <%= form.label t(:categories) %>
   <%= form.collection_select :category_ids, Category.order(:name), :id, :name, {},
   {class: 'form-control select2', multiple:true}%>
 </div>
 
   <div>
-  <%= form.label :status %><br>
-  <%= form.select :status, ['public', 'private', 'archived', 'members only'], selected: 'public' %>
+  <%= form.label t(:status) %><br>
+  <%= form.select :status, [t('public'), t('private'), t('archived'), t('members only')], selected:t('public') %>
 </div>
 
 
 <%if current_user.role == "admin"%>
 <%= form.check_box :approved %>
-<%= label_tag(:approve, "empty if not approved") %>
+<%= label_tag(t(:approve), "empty if not approved") %>
 <%end%>
  <div>
     <%= form.submit %>

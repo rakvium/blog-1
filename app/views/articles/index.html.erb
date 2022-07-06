@@ -6,7 +6,7 @@
 
 
 <%= search_form_for @q, remote: true do |f| %>
-  <%= f.search_field :title_or_body_cont, placeholder: 'search for articles', class: "form-control"  %>
+  <%= f.search_field :title_or_body_cont, placeholder: t('search for articles'), class: "form-control"  %>
   <%= f.submit%>
 <% end %>
 

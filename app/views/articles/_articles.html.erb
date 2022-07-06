@@ -10,17 +10,17 @@
       <tbody>
       <tr class = 'article_info'>
       <td ><span class='title'><%=article.title.capitalize%></span><br>
-       by: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %>
+      <%= t("by:")%> <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %>
      </td> 
        </tr>
         <tr class = 'article_body'>
        <td><%= article.body.to_s.split(" ").first(30).join(" ")%> 
        <br>
-       <%= button_to  "read more", article_url(article), :method => :get, class:"btn btn-outline-light"%>
+       <%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-outline-light"%>
 </td>
       </tr>
       <tr>
-      <td>category: <% Category.where(id: article.category_ids).find_each do |category|%> 
+      <td><%= t("category:")%> <% Category.where(id: article.category_ids).find_each do |category|%> 
       <%= link_to category.name, category_path(category.id) %>   
       <%end%></td>
       </tr>
@@ -28,12 +28,12 @@
       <tr class = 'article_functions'>
              <td> <% if user_signed_in? && current_user == article.user %>
 
-<div class='blogeddit'>  
+<div class='blogedit'>  
 
-  <%= link_to "Edit", edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
-  <%= link_to "Destroy", article_path(article), data: {
+  <%= link_to t("Edit"), edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
+  <%= link_to t("Destroy"), article_path(article), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
+                    turbo_confirm: t("Are you sure?")
                   }, style: 'color: black;', class: 'btn btn-outline-secondary' %>
                   </div>
 <%end%> </td>

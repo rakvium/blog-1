@@ -12,13 +12,13 @@
   <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
   <input type ="hidden" name="like[likeable_id]" value="<%= @article.id %>">
   <input type ="hidden" name="like[likeable_type]" value="Article">
-  <input type ="submit" value="like" class="btn btn-danger">
+  <input type ="submit" value="<%= t(:like)%>" class="btn btn-danger">
   </form>
   <%else%>
   <form action="<%= like_path(like)%>" method="post">
   <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
   <input type ="hidden" name="_method" value="DELETE">
-  <input type ="submit" value="liked" class="btn btn-dark">
+  <input type ="submit" value="<%= t(:liked)%>" class="btn btn-dark">
     </form>
 <%end%>
 <%end%>

@@ -7,59 +7,77 @@
 
 
           <li>
-            <%= link_to "articles",
+            <%= link_to t("articles"),
             articles_path, class:"nav-link text-light" %>
            </li>
 
              <li>
-            <%= link_to "categories",
+            <%= link_to t("categories"),
             categories_path, class:"nav-link text-white" %>
            </li>
 
           <li>
-            <%= link_to "eddit profile",
+            <%= link_to t("edit profile"),
               edit_user_registration_path, class:"nav-link text-light" %>
           </li>
 
        
            <li>
-            <%= link_to "profile",  user_path(current_user), class:"nav-link text-light" %>
+            <%= link_to t("profile"),  user_path(current_user), class:"nav-link text-light" %>
           </li>
 
         <% if policy(User).index? %>
            <li>             
-            <%= link_to "admin panel",  admin_path(current_user), class:"nav-link text-light" %>
+            <%= link_to t("admin panel"),  admin_path(current_user), class:"nav-link text-light" %>
           </li>  
           <% end %>
             
 
 
           <li>
-            <%= link_to "log_out",
+            <%= link_to t("log out"),
         destroy_user_session_url, method: :delete, class:"nav-link text-light font-weight-bold" %>
            </li>
+           <br>
+                <li>
+      <%= link_to "ქა",
+    root_path(locale: :ge), class:"nav-link text-light " %>
+    </li> /
+     <li>
+      <%= link_to "en",
+    root_path(locale: :en), class:"nav-link text-light " %>
+    </li>
 
           
 
 
        </ul>
        <% else %>
+       
        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li>
-          <%= link_to "home",
+          <%= link_to t("home"),
         root_path, class:"nav-link text-light" %>
         </li>
           <li>
-            <%= link_to "categories",
+            <%= link_to t("categories"),
             categories_path, class:"nav-link text-white" %>
            </li>
         <li>
-        <%= link_to "sign in",
+        <%= link_to t("sign in"),
     new_user_session_path, class:"nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "sign up",
+      <%= link_to t("sign up"),
     new_user_registration_path, class:"nav-link text-light " %>
+    </li>
+     <li>
+      <%= link_to "ქა",
+    root_path(locale: :ge), class:"nav-link text-light " %>
+    </li> /
+     <li>
+      <%= link_to "en",
+    root_path(locale: :en), class:"nav-link text-light " %>
     </li>
 
        </ul>

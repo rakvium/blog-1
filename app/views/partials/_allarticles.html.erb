@@ -3,17 +3,17 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col"><%= sort_link(@q, :title, "Title", default_order: :asc) %></th>
-      <th scope="col">content</th>
-      <th scope="col">created_at</th>
-      <th scope="col">status</th>
-      <th scope="col">author</th>
-      <th scope="col">category</th>
-      <th scope="col">approved</th>
+      <th scope="col"><%= sort_link(@q, :title, t("Title"), default_order: :asc) %></th>
+      <th scope="col">t(content)</th>
+      <th scope="col">t(created_at)</th>
+      <th scope="col">t(status)</th>
+      <th scope="col">t(author)</th>
+      <th scope="col">t(category)</th>
+      <th scope="col">t(approved)</th>
       <th scope="col"> </th>
       <th scope="col"> </th>
-      <th scope="col">likes</th>
-      <th scope="col">comments</th>
+      <th scope="col">t(likes)</th>
+      <th scope="col">t(comments)</th>
       
 
      </tr>
@@ -31,11 +31,11 @@
        <td><% Category.where(id: article.category_ids).find_each do |category|%> 
       <%= link_to category.name, category_path(category.id) %>   
       <%end%></td>   
-      <td><%= article.approved ? "approved" : "not approved"%></td>
-      <td><%= link_to "Edit", edit_article_path(article) %></td>
-      <td><%= link_to "Destroy", article_path(article), data: {
+      <td><%= article.approved ? t("approved") : t("not approved")%></td>
+      <td><%= link_to t("Edit"), edit_article_path(article) %></td>
+      <td><%= link_to t("Destroy"), article_path(article), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
+                    turbo_confirm: t("Are you sure?")
                   } %></td>
       <td><%= article.likes.count %></td>
       <td><%= article.comments.count %></td>

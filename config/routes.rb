@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'static_pages/index'
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   resources :categories
 
   devise_for :users
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
     get "article/approve/:id", to: "admin#article_approve",  as: 'admin_article_approve'
     get "article/disapprove/:id", to: "admin#article_disapprove",  as: 'admin_article_disapprove'
   end
+end
 end
