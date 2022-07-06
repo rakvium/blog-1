@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :users
+  resources :likes, only: [:create, :destroy]
 
   get "/search", to: "articles#search"
 

@@ -1,15 +1,13 @@
   <% @comments.each do |comment| %>
 <% unless comment.archived? %>
 <div class='comment'>
-    <strong><%= link_to "#{User.find(comment.user_id).email.split("@")[0]}:", user_path(comment.user_id)%> </strong>
-    <br>
+    <%= link_to User.find(comment.user_id).user_name.nil? ? "#{User.find(comment.user_id).email}" : "#{User.find(comment.user_id).user_name}", user_path(comment.user_id)%> :
     <%= comment.body %>
-    <br>
    <%if user_signed_in? &&( comment.user_id == current_user[:id] || current_user.role == "admin") %>
   <%= link_to "Destroy Comment", [comment.article, comment], data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
-              } %>
+              },  class: "btn btn-outline-light" %>
   </div>
 <% end %>
 
