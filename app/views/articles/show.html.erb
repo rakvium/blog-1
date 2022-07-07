@@ -3,12 +3,12 @@
 <p class='author'> author : <%= link_to @article.user.email.split("@")[0], user_path(@article.user), {:class => "btn btn-outline-secondary"}
   %> 
 </p>
-<%= pluralize(@article.likes.count, "like") %>
+<div class="reactions"> 
 <%if user_signed_in?
 %>
 <%like = current_user.likes.find_by(likeable: @article) %>
 <% if like.nil? %>
-<form action="/likes" method="post">
+<form action="/likes" method="post" style="display:inline">
   <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
   <input type ="hidden" name="like[likeable_id]" value="<%= @article.id %>">
   <input type ="hidden" name="like[likeable_type]" value="Article">
@@ -23,7 +23,26 @@
 <%end%>
 <%end%>
 
-
+<%if user_signed_in?
+%>
+<% dislike = current_user.dislikes.find_by(dislikeable: @article) %>
+<% if dislike.nil? %>
+<form action="/dislikes" method="post" style="display:inline">
+  <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <input type ="hidden" name="dislike[dislikeable_id]" value="<%= @article.id %>">
+  <input type ="hidden" name="dislike[dislikeable_type]" value="Article">
+  <input type ="submit" value="<%= t(:hate)%>" class="btn btn-danger">
+  </form>
+  <%else%>
+  <form action="<%= dislike_path(dislike)%>" method="post">
+  <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <input type ="hidden" name="_method" value="DELETE">
+  <input type ="submit" value="<%= t(:hated)%>" class="btn btn-dark">
+    </form>
+  
+<%end%>
+<%end%>
+</div>
 
 
 <h2>Comments</h2>

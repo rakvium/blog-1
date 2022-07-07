@@ -1,0 +1,2 @@
+module DilikesHelper
+end

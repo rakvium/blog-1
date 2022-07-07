@@ -1,15 +1,12 @@
 
 <p><%= t("email:")%> <%= @user.email%> </p>
 <p><%= t("role")%><%= @user.role %></p>
+  <%= link_to t("create new article"), new_article_path %>
+  <%= link_to t("all articles"), articles_path %>
 
 <%= render 'articles/articles', articles: @articles %>
 
 
-  <%= link_to t("create new article"), new_article_path %>
-  <%= link_to t("all articles"), articles_path %>
-    <% if policy(User).index? %>
-    <%= link_to t("users"), users_path %>
-  <%end %>
 
 
 

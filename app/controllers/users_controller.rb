@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit]
-  before_action :get_users, only: [:index, :show]
   include Pundit
-  
+
+  def index
+    authorize User
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order(created_at: :ASC)
+  end
+
+  def search
+    @users =  User.where("email_or_user_name LIKE ?", "%" + params[:q] + "%").paginate(page: params[:page], per_page: 10)
+  end
 
   def show
+    @users=User.order(created_at: :desc)
     @user = User.find(params[:id])
     @articles = @user.articles.paginate(page: params[:page], per_page: 3) 
   end
@@ -13,17 +22,6 @@ class UsersController < ApplicationController
     User.find(current_user.id)
   end
   
-  def index
-    @q = User.ransack(params[:q])
-    @users = User.all.order(created_at: :ASC)
-    @users = @q.result(distinct: true).order(created_at: :ASC)
-    authorize User
-  end
-
-  def search
-    @users =  User.where("username_or_email_or_role LIKE ?", "%" + params[:q] + "%").paginate(page: params[:page], per_page: 10)
-  end
-
   private
 
   def set_user
@@ -31,11 +29,10 @@ class UsersController < ApplicationController
   end
 
   def get_users
-    @users=User.order(created_at: :desc)
   end
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:role, :username, :email)
   end
 end
 

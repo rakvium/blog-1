@@ -2,14 +2,13 @@ class ArticlesController < ApplicationController
 
     def index
       @q = Article.ransack(params[:q])
-      @articles = @q.result.all.paginate(page: params[:page], per_page: 10)
+      @articles = @q.result
       @category = Category.all
-
     end
    
 
   def search
-    @articles =  Article.where("title LIKE ?", "%" + params[:q] + "%").paginate(page: params[:page], per_page: 10)
+    @articles =  Article.where("title_or_descriprion LIKE ?", "%" + params[:q] + "%").paginate(page: params[:page], per_page: 10)
   end
   
   def show

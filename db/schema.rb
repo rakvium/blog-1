@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_07_060941) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_07_071706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +99,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_060941) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "dislikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "dislikeable_type"
+    t.bigint "dislikeable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dislikeable_id", "dislikeable_type"], name: "index_dislikes_on_dislikeable_id_and_dislikeable_type"
+    t.index ["dislikeable_id"], name: "index_dislikes_on_dislikeable_id"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "likeable_id", null: false
@@ -135,6 +146,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_060941) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "dislikes", "articles", column: "dislikeable_id"
+  add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "articles", column: "likeable_id"
   add_foreign_key "likes", "users"
 end

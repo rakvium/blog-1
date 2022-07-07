@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .reactions {
+  display: flexbox;
+ }
  .admintable{
   position: absolute;
   width: 100%;
@@ -39,10 +42,6 @@
   display: flex;
 }
 
-.table{
-position: relative;
-left: 5px;
-}
 
 .comment {
   color: black;
@@ -77,71 +76,6 @@ left: 5px;
 
 }
 
-.addcomment{
-  color: rgb(255, 255, 255);
-  position: relative;
-  left: 20px;
-  text-shadow: 2px 2px #aca6a6
-}
-
-
-.article{
-  color: black;
-  background-color: #615b5b62;
-  border: 3px solid rgb(246, 242, 242);
-  padding: 20px 10px;
-  border-radius: 25px;
-  margin: 20px;
-}
-
-.article_body {
-  color: rgb(255, 255, 255);
-  background-color: #3b2727;
-
-}
-
-tbody {
-background-color: #b0b0b3;}
-
-.title {
-  font-style: italic;
-  font-size: 30px;
-  color: #3b2727;
-
-}
-
-
-.article_functions {
-  color: black;
-  background-color: #ffffff;
-
-}
-.article_info {
-  color: black;
-  background-color: #dadada;
-}
-.blogcounter{
-  color: rgb(210, 209, 209);
-  font-size: xx-large;
-  border: 3px;
-  padding: 20px 10px;
-  text-shadow: 2px 2px #a9a7a7;
-}
-
-
-.author {
-  opacity: 0.5;
-}
-
-
-
-
-.title{
-  font-family: Apple Chancery, cursiv;
-  text-shadow: 2px 2px #aca6a6;
-}
-
-
 .blogcounter{
   color: rgb(210, 209, 209);
   font-size: xx-large;
@@ -171,26 +105,26 @@ background-color: #b0b0b3;}
   .digg_pagination .current {
     font-style: normal;
     font-weight: bold;
-    background: #2e6ab1;
+    background: #333436;
     color: white;
-    border: 1px solid #2e6ab1; }
+    border: 1px solid #202326; }
   .digg_pagination a {
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5; }
+    color: #333639;
+    border: 1px solid #7f828a; }
     .digg_pagination a:hover, .digg_pagination a:focus {
       color: #000033;
       border-color: #000033; }
   .digg_pagination .page_info {
-    background: #2e6ab1;
+    background: #1d1e1f;
     color: white;
     padding: 0.4em 0.6em;
     width: 22em;
     margin-bottom: 0.3em;
     text-align: center; }
     .digg_pagination .page_info b {
-      color: #000033;
-      background: #6aa6ed;
+      color: #000000;
+      background: #494b4d;
       padding: 0.1em 0.25em; }
   .digg_pagination:after {
     content: ".";
@@ -204,26 +138,3 @@ background-color: #b0b0b3;}
     overflow: hidden; 
 }
 
-
-#navbar {
-  background-color: #333; /* Black background color */
-  position: fixed; /* Make it stick/fixed */
-  top: -50px; /* Hide the navbar 50 px outside of the top view */
-  width: 100%; /* Full width */
-  transition: top 0.3s; /* Transition effect when sliding down (and up) */
-}
-
-/* Style the navbar links */
-#navbar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  text-decoration: none;
-}
-
-#navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}

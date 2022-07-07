@@ -1,4 +1,9 @@
+   
+    <div class="digg_pagination center">    
+      <%= will_paginate @articles%>
+    </div>
     <div class='general'>
+    
     <table class = 'table' >
        <thead>
     <tr class = 'row'>
@@ -6,11 +11,11 @@
       </tr> 
       </thead>
       <% @articles.each do |article| %>
-    <% unless article.archived? || (article.private? && article.user != current_user) %>    
+    <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
       <tbody>
       <tr class = 'article_info'>
       <td ><span class='title'><%=article.title.capitalize%></span><br>
-      <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %>
+      
      </td> 
        </tr>
         <tr class = 'article_body'>
@@ -20,10 +25,12 @@
 </td>
       </tr>
       <tr>
-      <td><%= t("category:")%> <% Category.where(id: article.category_ids).find_each do |category|%> 
+      <td> <%= t("category:")%> <% Category.where(id: article.category_ids).find_each do |category|%>
       <%= link_to category.name, category_path(category.id) %>   
       <%end%></td>
       </tr>
+      <tr><td> <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %></td></tr>
+
 
       <tr class = 'article_functions'>
              <td> <% if user_signed_in? && current_user == article.user %>
@@ -48,7 +55,6 @@
   <% end %> 
       </table>
 </div>
-    <div class="digg_pagination center">
-    
-<%= will_paginate @articles%>
+    <div class="digg_pagination center">    
+      <%= will_paginate @articles%>
     </div>

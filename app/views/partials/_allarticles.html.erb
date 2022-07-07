@@ -4,19 +4,17 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col"><%= sort_link(@q, :title, t("Title"), default_order: :asc) %></th>
-      <th scope="col"><%=t("description")%></th> 
-      <th scope="col"><%=t("created_at")%></th>
-      <th scope="col"><%=t("status")%></th>
-      <th scope="col"><%=t("author")%></th>
-      <th scope="col"><%=t("category")%></th>
-      <th scope="col"><%=t("approved")%></th>
+      <th scope="col"><%= sort_link(@q, :description, t("description"), default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :created_at, t("created_at"), default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :status, t("status"), default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :user_name_or_email_or_role, t("author"), default_order: :asc) %></th>
+      <th scope="col"><%= link_to t("category"), categories_path %></th>
+      <th scope="col"><%= sort_link(@q, :approved, t("approved"), default_order: :asc) %></th> 
       <th scope="col"> </th>
       <th scope="col"> </th>
-      <th scope="col"><%=t("likes")%></th>
-      <th scope="col"><%=t("comments")%></th>
-      
-
-     </tr>
+      <th scope="col"><%= sort_link(@q, :like, t("likes"), default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :comments, t("comments"), default_order: :asc) %></th>
+      </tr>
   </thead>  
   <tbody>
 

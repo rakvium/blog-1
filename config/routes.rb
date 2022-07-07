@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :likes, only: [:create, :destroy]
+  resources :dislikes, only: [:create, :destroy]
 
-  get "/search", to: "articles#search"
+
 
   scope "admin" do
     delete "users/:id", to: "admin#user_destroy", via: 'delete', as: 'admin_destroy_user'
