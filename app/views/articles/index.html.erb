@@ -1,5 +1,5 @@
 <body class='general'>
-<p> Our blog has <%= Article.public_count %> articles and counting! </p>
+<p> Our blog has <%= pluralize(Article.public_count, "article") %> and counting! </p>
 
 
 
@@ -13,12 +13,12 @@
 <% if user_signed_in? && current_user.role == "admin" %>
   <%= render "partials/allarticles", articles: @articles%>
 <%else%>
-
    <%=render partial: 'articles'%>
 <%end%>
 
 
 <body>
     <%= yield %>
+</body>
 </body>
 

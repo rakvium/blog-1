@@ -16,5 +16,5 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 end

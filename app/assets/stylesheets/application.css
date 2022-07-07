@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ .admintable{
+  position: absolute;
+  width: 100%;
+  left:0%;
+ }
+ .row{
+   height: auto;
+   width: 100%;
+ }
 
 .forms{
   width: 400px;
@@ -26,13 +35,15 @@
 }
 .general {
   background-color: #ffffff;
+  padding: 10px;
   display: flex;
-  text-align: center;
 }
 
 .table{
-  margin: auto;
+position: relative;
+left: 5px;
 }
+
 .comment {
   color: black;
   border: 1px solid rgb(156, 154, 154);
@@ -191,4 +202,28 @@ background-color: #b0b0b3;}
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; 
+}
+
+
+#navbar {
+  background-color: #333; /* Black background color */
+  position: fixed; /* Make it stick/fixed */
+  top: -50px; /* Hide the navbar 50 px outside of the top view */
+  width: 100%; /* Full width */
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+
+/* Style the navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
 }

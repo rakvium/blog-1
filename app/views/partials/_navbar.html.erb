@@ -39,14 +39,16 @@
         destroy_user_session_url, method: :delete, class:"nav-link text-light font-weight-bold" %>
            </li>
            <br>
-                <li>
-      <%= link_to "ქა",
-    root_path(locale: :ge), class:"nav-link text-light " %>
-    </li> /
-     <li>
-      <%= link_to "en",
-    root_path(locale: :en), class:"nav-link text-light " %>
-    </li>
+          <li class="nav-item">
+          <%= link_to(locale: :ge) do %>
+            <img  width=30 class="c-icon ms-3 mt-2"  alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png">
+        <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to(locale: :en) do %>
+            <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
+        <% end %>
+        </li>
 
           
 
@@ -71,14 +73,16 @@
       <%= link_to t("sign up"),
     new_user_registration_path, class:"nav-link text-light " %>
     </li>
-     <li>
-      <%= link_to "ქა",
-    root_path(locale: :ge), class:"nav-link text-light " %>
-    </li> /
-     <li>
-      <%= link_to "en",
-    root_path(locale: :en), class:"nav-link text-light " %>
-    </li>
+   <li class="nav-item">
+          <%= link_to(locale: :ge) do %>
+            <img  width=30 class="c-icon ms-3 mt-2"  alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png">
+        <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to(locale: :en) do %>
+            <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
+        <% end %>
+        </li>
 
        </ul>
        <%end%>

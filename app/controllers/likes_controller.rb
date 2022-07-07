@@ -5,14 +5,17 @@ class LikesController < ApplicationController
     if !@like.save 
       flash[:notice] = @like.errors.full_messages.to_sentence
     end
-    redirect_to @like.likeable
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
-    likeable = @like.likeable
     @like.destroy
-    redirect_to likeable
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
    private

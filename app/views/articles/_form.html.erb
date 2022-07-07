@@ -15,6 +15,14 @@
     <% end %>
   </div>
 
+    <div>
+    <%= form.label t(:description) %><br>
+    <%= form.text_area :description %>
+    <% article.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
  
    <div class ='form-group'>
   <%= form.label t(:categories) %>
@@ -24,8 +32,8 @@
 
   <div>
   <%= form.label t(:status) %><br>
-  <%= form.select :status, [t('public'), t('private'), t('archived'), t('members only')], selected:t('public') %>
-</div>
+  <%= form.select :status, ['public', 'private', 'archived', 'members only'], selected:'public' %>
+  </div>
 
 
 <%if current_user.role == "admin"%>

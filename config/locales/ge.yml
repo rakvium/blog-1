@@ -20,6 +20,7 @@ ge:
   like: "მოწონება"
   likes: "მოწონებები"
   by: "ავტორი"
+  By: "ავტორი"
   search: "ძიება"
   comments: "კომენტარები"
   create comment: "დააკომენტარე"
@@ -31,6 +32,7 @@ ge:
   private: "პირადი"
   role: "როლი" 
   title: "სათაური"
+  Title: "სათაური"
   content: "კონტენტი"
   created_at: "შექმნის თარიღი"
   author: "ავტორი"
@@ -69,5 +71,15 @@ ge:
   admin panel: ადმინის პანელი
   sign in: შესვლა
   edit Profile: პროფილოის რედაქტირება
-  log Out: გასვლა
+  log out: გასვლა
+  Log Out: გასვლა
+  art: ხელოვნება
+  history: ისტორია
+  whatever: ნებისმიერი
+  romance: რომანწიკა
+  books: წიგნები
+  it: აიტი
+  sport: სპორტი
+  description: აღწერა
+  no description: აღწერის გარეშე
   

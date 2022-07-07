@@ -64,6 +64,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :status, :approved, :body, categories_attributes: [:name, :destroy], category_ids: [])
+      params.require(:article).permit(:title, :status, :approved,:description, :body, categories_attributes: [:name, :destroy], category_ids: [])
     end
 end

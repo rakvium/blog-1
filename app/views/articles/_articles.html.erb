@@ -2,7 +2,7 @@
     <table class = 'table' >
        <thead>
     <tr class = 'row'>
-      <th scope="col">article</th>
+      <th scope="col"><%= t("article")%></th>
       </tr> 
       </thead>
       <% @articles.each do |article| %>
@@ -10,11 +10,11 @@
       <tbody>
       <tr class = 'article_info'>
       <td ><span class='title'><%=article.title.capitalize%></span><br>
-      <%= t("by:")%> <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %>
+      <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %>
      </td> 
        </tr>
         <tr class = 'article_body'>
-       <td><%= article.body.to_s.split(" ").first(30).join(" ")%> 
+       <td><%= article.description || t("no description")%> 
        <br>
        <%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-outline-light"%>
 </td>
