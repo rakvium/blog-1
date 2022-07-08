@@ -71,10 +71,14 @@ en:
   users: "users"
   destroy: "destroy"
   all articles: "all articles"
+  repeat the password: repeat the password
+  characters minimum: characters minimum
   Unhappy? Cancel your account: "Unhappy? Cancel your account"
-  Current password (we need your current password to confirm your changes): "Current password (we need your current password to confirm your changes)"
-  Password (leave blank if you don't want to change it): "Password (leave blank if you don't want to change it)"
+  current password: მიმდინარე პაროლი
+  we need your current password to confirm your changes:   we need your current password to confirm your changes
+  leave blank if you don't want to change it: leave blank if you don't want to change it
   back: "back"
+  Back: Back
   Are you sure?: "Are you sure?"
   members only: "members only"
   empty if not approved: "empty if not approved"

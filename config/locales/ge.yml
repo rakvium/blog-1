@@ -41,10 +41,14 @@ ge:
   users: "მომხმარებლები"
   destroy: "წაშლა"
   Destroy: "წაშლა"
+  repeat the password: გაიმეორეთ პაროლი
+  characters minimum: სიმბოლო ან მეტი
   Unhappy? Cancel your account: "უბედური ხარ? წაშალე ანგარიში"
-  Current password (we need your current password to confirm your changes): "მიმდინარე პაროლი (ცვლილებბეის დასადასტურებლად თქვენი პაროლი დაგვჭირდება)"
-  Password (leave blank if you don't want to change it): "პაროლი (დატოვეთ ცარიელი თუ არ გნებავთ შეცვლა)"
+  current password: მიმდინარე პაროლი
+  we need your current password to confirm your changes: ცვლილებბეის დასადასტურებლად თქვენი პაროლი დაგვჭირდება"
+  leave blank if you don't want to change it: დატოვეთ ცარიელი თუ არ გნებავთ შეცვლა
   back: "უკან"
+  Back: "უკან"
   Are you sure?: "დარწმუნებული ხარ?"
   members only: "მხოლოდ წევრებისთვის"
   empty if not approved: "ცარიელი თუ არ არის დადასტურებული"

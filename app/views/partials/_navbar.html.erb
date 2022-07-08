@@ -5,6 +5,10 @@
          <% if user_signed_in? %>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+<li>
+            <%= link_to image_tag("#{current_user.avatar}", :height => 40, :width=> 40, :alt => 'profile', :title => 'profile'), user_path(current_user), :class => 'nav-link text-light'%>
+          </li>
+
 
           <li>
             <%= link_to t("articles"),
@@ -17,17 +21,9 @@
            </li>
            
         
-
-
-
           <li>
             <%= link_to t("edit profile"),
               edit_user_registration_path, class:"nav-link text-light" %>
-          </li>
-
-       
-           <li>
-            <%= link_to t("profile"),  user_path(current_user), class:"nav-link text-light" %>
           </li>
 
         <% if policy(User).index? %>
@@ -35,29 +31,26 @@
             <%= link_to t("admin panel"),  admin_path(current_user), class:"nav-link text-light" %>
           </li>  
           <% end %>
-            
 
-
-          <li>
+             <li>
             <%= link_to t("log out"),
         destroy_user_session_url, method: :delete, class:"nav-link text-light font-weight-bold" %>
            </li>
+
+
+         
            <br>
-          <li class="nav-item">
+          <li class="nav-right">
           <%= link_to(locale: :ge) do %>
             <img  width=30 class="c-icon ms-3 mt-2"  alt="geoflag" src="https://cdn.countryflags.com/thumbs/georgia/flag-400.png">
         <% end %>
         </li>
-        <li class="nav-item">
+        <li class="nav-right">
           <%= link_to(locale: :en) do %>
             <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
         <% end %>
         </li>
 
-             <li>
-            <img src = "<%= @user.avatar %>">
-
-           </li>
 
 
        </ul>
@@ -90,7 +83,6 @@
             <img  width=30 height=21 class="c-icon ms-3 mt-2" alt="enflag" src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png">
         <% end %>
         </li>
-
        </ul>
        <%end%>
 
