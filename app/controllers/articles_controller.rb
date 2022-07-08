@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
     def index
       @q = Article.ransack(params[:q])
-      @articles = @q.result
+      @articles = @q.result.paginate(page: params[:page], per_page: 10)
       @category = Category.all
     end
    

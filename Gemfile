@@ -13,7 +13,9 @@ gem "sprockets-rails"
 #gem "sqlite3", "~> 1.4"
 gem 'pg'
 
-gem 'faker'
+
+#for avatar
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 
 #internationalization
 gem 'rails-i18n'

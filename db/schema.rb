@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_07_071706) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_08_052040) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,7 +79,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_071706) do
     t.bigint "user_id"
     t.boolean "approved", default: false
     t.string "description"
+    t.string "avatar"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "avatars", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -122,6 +131,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_071706) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "mobile_numbers", force: :cascade do |t|
+    t.string "country"
+    t.string "number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mobile_numbers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -144,10 +162,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_07_071706) do
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
   add_foreign_key "articles", "users"
+  add_foreign_key "avatars", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "dislikes", "articles", column: "dislikeable_id"
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "articles", column: "likeable_id"
   add_foreign_key "likes", "users"
+  add_foreign_key "mobile_numbers", "users"
 end
