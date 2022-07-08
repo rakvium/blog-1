@@ -14,6 +14,11 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+    <div class="field">
+      <%= f.label t(:avatar) %><br />
+      <%= f.file_field :avatar, class: "form-control" %>
+    </div>  
+
   <div class="field">
     <%= f.label t(:password) %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: t("new-password"), class: "form-control", placeholder:  "#{@minimum_password_length} characters minimum" %>

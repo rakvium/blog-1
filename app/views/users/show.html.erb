@@ -1,5 +1,5 @@
-
-<p><%= t("email:")%> <%= @user.email%> </p>
+<img src = "<%= @user.avatar %>">
+<p><%= t("username")%>: <%= @user.user_name%> </p>
 <p><%= t("role")%><%= @user.role %></p>
   <%= link_to t("create new article"), new_article_path %>
   <%= link_to t("all articles"), articles_path %>

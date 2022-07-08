@@ -30,8 +30,8 @@ end
  protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :language])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :language])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :language, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :language, :avatar])
   end
 
 end
