@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_08_060727) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_132630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,14 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_060727) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "avatars", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_avatars_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -130,27 +122,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_060727) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "mobile_numbers", force: :cascade do |t|
-    t.string "country"
-    t.string "number"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_mobile_numbers_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
     t.integer "role"
     t.string "language"
     t.string "avatar"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -162,12 +150,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_060727) do
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
   add_foreign_key "articles", "users"
-  add_foreign_key "avatars", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "dislikes", "articles", column: "dislikeable_id"
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "articles", column: "likeable_id"
   add_foreign_key "likes", "users"
-  add_foreign_key "mobile_numbers", "users"
 end

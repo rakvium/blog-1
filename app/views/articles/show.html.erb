@@ -23,8 +23,7 @@
 <%end%>
 <%end%>
 
-<%if user_signed_in?
-%>
+<%if user_signed_in? %>
 <% dislike = current_user.dislikes.find_by(dislikeable: @article) %>
 <% if dislike.nil? %>
 <form action="/dislikes" method="post" style="display:inline">
