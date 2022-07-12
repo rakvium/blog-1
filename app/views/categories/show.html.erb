@@ -4,7 +4,7 @@
 <%= render 'articles/articles' %>
 
 
-<% if user_signed_in? && user.role == 'admin'%>
+<% if user_signed_in? && current_user.role == 'admin'%>
 <div>
   <%= link_to t("Edit this category"), edit_category_path(@category) %> |
   <%= link_to t("Back to categories"), categories_path %>
