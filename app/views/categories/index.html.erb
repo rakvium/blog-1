@@ -8,4 +8,6 @@
   <% end %>
 </div>
 
+<% if user_signed_in? && user.role == 'admin'%>
 <%= link_to "New category", new_category_path %>
+<% end%>

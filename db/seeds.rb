@@ -21,3 +21,12 @@
            password: 'mariam'
        )
    end
+
+   (1..5).each do |id|
+    Comment.create!(
+        body: Faker::Lorem.sentence(word_count: 1),
+        user_id:2,
+        article_id: 52,
+        status:'public'
+    )
+end

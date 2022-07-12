@@ -1,7 +1,4 @@
-<p> Our blog has <%= pluralize(Article.public_count, "article") %> and counting! </p>
-
-
-
+<p> Our blog has <%= pluralize(Article.where('approved = ?', true).public_count, "article") %> and counting! </p>
 
 
 <%= search_form_for @q, remote: true do |f| %>

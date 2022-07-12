@@ -1,41 +1,29 @@
 class CommentsController < ApplicationController
-  before_action :get_article
-  require 'will_paginate/array'
-
-
-  def index
-    @comments = @article.comments
-  end
-
-  def show
-    @comments = @article.comments
-  end
-
+  before_action :authenticate_user!
+  before_action :set_article
   def create
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.build(comment_params.merge(user_id: current_user.id))
-    if @comment.save
-      redirect_to @article
-    else
-      redirect_to @article
-    end
-  end
+    @comment= @article.comments.new(comment_params)
+    @comment.user = current_user
 
-  def destroy
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.find(params[:id])
-    @comment.destroy
-    redirect_to article_path(@article), status: 303
+    respond_to do |format|
+      if    @comment.save
+
+        format.html { redirect_to article_url(@article), notice: "comment was successfully created." }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
-    def get_article
-      @article = Article.find(params[:article_id])
-    end
 
-    def comment_params
-      params.require(:comment).permit(:body, :status, :user_id)
-    end
+  def comment_params
+    params.require(:comment).permit(:body, :article_id)
+  end
+
+  def set_article
+    @article= Article.find(params[:article_id])
+  end
 end
-
-
