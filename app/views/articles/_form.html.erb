@@ -25,7 +25,7 @@
 
  
    <div class ='form-group'>
-  <% if @categories.count != 0 %>
+  <% if !@categories.nil? %>
   <%= form.label t(:categories) %>
   <%= form.collection_select :category_ids, Category.order(:name), :id, :name, {},
   {class: 'form-control select2', multiple:true}%>
