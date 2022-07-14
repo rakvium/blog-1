@@ -10,4 +10,7 @@
  
    User.create(user_name: 'Emanuel', password: 'mariam', email: "admin@admin.ad", role: 2)
 
+  Article.create(title: Faker::Esport.player, body: Faker::Name.unique.name, description: Faker::Job.title, user_id: 2)
+   
+
    

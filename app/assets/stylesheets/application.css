@@ -13,6 +13,31 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-color: #d5e8ff;
+}
+
+.article_index{
+  background-color: rgba(255, 255, 255, 0.289);
+  padding: 50px;
+  border-radius: 3%;}
+
+.article_show{
+  background-color: rgba(255, 255, 255, 0.289);
+  padding: 50px;
+  border-radius: 3%;
+
+}
+
+.article_form{
+  width: 80%;
+  border-radius: 3%;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  position: relative;
+  margin: auto;
+}
+ 
  .reactions {
   display: flexbox;
  }
@@ -21,10 +46,7 @@
   width: 100%;
   left:0%;
  }
- .row{
-   height: auto;
-   width: 100%;
- }
+
 
 .forms{
   width: 400px;
@@ -37,9 +59,11 @@
   margin-top: 20px;
 }
 .general {
-  background-color: #ffffff;
+  background-color: #ffffff63;
   padding: 10px;
   display: flex;
+  padding: 20px;
+  border-radius: 1%;
 }
 
 
@@ -91,7 +115,7 @@
 
 
 .digg_pagination {
-  background: #f7f6f6;
+  background: #ffffff00;
   cursor: default;
   /* self-clearing method: */ }
   .digg_pagination a, .digg_pagination span, .digg_pagination em {
@@ -117,7 +141,7 @@
       border-color: #000033; }
   .digg_pagination .page_info {
     background: #1d1e1f;
-    color: white;
+    color: rgba(255, 255, 255, 0);
     padding: 0.4em 0.6em;
     width: 22em;
     margin-bottom: 0.3em;

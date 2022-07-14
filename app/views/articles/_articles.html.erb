@@ -1,10 +1,12 @@
-   
-    <div class="digg_pagination center">    
-      <%= will_paginate @articles%>
-    </div>
-    <div class='general'>
+
+   <% %>
+<div class="digg_pagination center article_index">    
+  <%= will_paginate @articles if @articles.count > 10%>
+</div>
+
+<div class='general'>
     
-    <table class = 'table' >
+    <table  >
        <thead>
     <tr class = 'row'>
       <th scope="col"><%= t("article")%></th>
@@ -15,7 +17,6 @@
       <tbody>
       <tr class = 'article_info'>
       <td ><span class='title'><%=article.title.capitalize%></span><br>
-      
      </td> 
        </tr>
         <tr class = 'article_body'>
