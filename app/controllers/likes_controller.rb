@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :get_dislike, only: %i[create]
+  respond_to :json, :html
 
   def create
     @like = current_user.likes.new(like_params)

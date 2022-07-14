@@ -3,6 +3,11 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
 
+    <%if current_user.role == "admin"%>
+<%= form.check_box :approved %>
+<%= label_tag :approve, t("check to approve") %>
+<%end%>
+
   <div>
     <%= form.submit %>
   </div>

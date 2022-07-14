@@ -27,7 +27,7 @@
    <div class ='form-group'>
   <% if !@categories.nil? %>
   <%= form.label t(:categories) %>
-  <%= form.collection_select :category_ids, Category.order(:name), :id, :name, {},
+  <%= form.collection_select :category_ids, Category.where("approved = ?", true).order(:name), :id, :name, {},
   {class: 'form-control select2', multiple:true}%>
   <% end %>
 </div>
@@ -40,7 +40,7 @@
 
 <%if current_user.role == "admin"%>
 <%= form.check_box :approved %>
-<%= label_tag(t(:approve), "empty if not approved") %>
+<%= label_tag :approve, t("check to approve") %>
 <%end%>
  <div>
     <%= form.submit %>
