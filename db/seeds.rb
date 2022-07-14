@@ -9,7 +9,7 @@
 
  
    User.create(user_name: 'Emanuel', password: 'mariam', email: "admin@admin.ad", role: 2)
-   categories = Category.create([{ name: 'random' }, { name: 'art' }])
+   categories = Category.create([{ name: 'random' }, { name: 'art' }, { name: 'history' }])
 
   
 
@@ -17,7 +17,7 @@
        User.create!(
            user_name: Faker::Lorem.sentence(word_count: 1),
            email: Faker::Internet.email,
-           role:2,
+           role:0,
            password: 'mariam'
        )
    end
@@ -25,7 +25,7 @@
    (1..5).each do |id|
     Comment.create!(
         body: Faker::Lorem.sentence(word_count: 1),
-        user_id:2,
+        user_id:1,
         article_id: 52,
         status:'public'
     )
