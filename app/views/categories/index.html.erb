@@ -10,7 +10,8 @@
 
 <% if user_signed_in? && current_user.role == 'admin'%>
   <%= link_to t("New category"), new_category_path %>
-  <p><%= "waiting for approval"%>:<p>
+  <p>  <%= @categories.where('approved = ?', false).count%>
+<%= "waiting for approval"%>:<p>
   <%=render partial: 'unapproved'%>
 <% elsif user_signed_in? %>
 <%= link_to t("Category request"), new_category_path %>

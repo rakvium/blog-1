@@ -1,5 +1,31 @@
 <div id="categories">
-  <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) if category.approved == false %>
-  <% end %>
+    <table  class="table-bordered">
+      <% if @categories.where("approved = ?", false).count > 0%>
+      <thead>
+        <th> category name </th>
+        <th> delete suggestion </th>
+        <th> check to approve </th>
+      </thead>  
+      <%end%>
+    <tbody>
+      <% @categories.each do |category| %>
+        <% if category.approved == false %>
+          <tr>
+            <td> <%= link_to category.name, category_path(category)  %> </td>
+            <td><%= link_to t("Destroy"), category_path(category), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: t("Are you sure?")
+                      } %></td>
+
+            <td>
+              <%= form_with(model: category) do |form| %>
+              <%= form.check_box :approved %> 
+              <%= form.submit %>
+              <%end%>
+            </td>
+          </tr>
+        <%end%>
+      <%end%>
+    </tbody> 
+  </table>
 </div>
