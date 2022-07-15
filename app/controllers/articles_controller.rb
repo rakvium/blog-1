@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -62,6 +63,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :status, :approved,:description, :body, categories_attributes: [:name, :destroy], category_ids: [])
+      params.require(:article).permit(:title, :status, :language, :approved,:description, :body, categories_attributes: [:name, :destroy], category_ids: [])
     end
 end
