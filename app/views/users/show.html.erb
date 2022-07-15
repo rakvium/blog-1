@@ -4,8 +4,10 @@
     <li>  <%= t("role")%>: <%=t("#{@user.role }")%>  </li>
   </ul>
 
+<%if params[:user_id] == current_user[:id]%>
   <%= link_to t("create new article"), new_article_path,  {:class => "btn btn-outline"} %>
   <%= link_to t("all articles"), articles_path,  {:class => "btn btn-outline"} %>
+<% end %>
 
 <%= render 'articles/articles', articles: @articles %>
 

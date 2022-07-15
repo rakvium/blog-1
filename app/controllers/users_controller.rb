@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     authorize User
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).order(created_at: :ASC)
+    @users = @q.result(distinct: true).order(created_at: :ASC).paginate(page: params[:page], per_page: 10)
   end
 
   def search

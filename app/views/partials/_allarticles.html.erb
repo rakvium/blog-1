@@ -3,13 +3,14 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col"><%= sort_link(@q, :title, t("Title"), default_order: :asc) %></th>
-      <th scope="col"><%= sort_link(@q, :description, t("description"), default_order: :asc) %></th>
-      <th scope="col"><%= sort_link(@q, :created_at, t("created_at"), default_order: :asc) %></th>
-      <th scope="col"><%= sort_link(@q, :status, t("status"), default_order: :asc) %></th>
-      <th scope="col"><%= sort_link(@q, :user_name_or_email_or_role, t("author"), default_order: :asc) %></th>
+      <th scope="col"><%= sort_link(@q, :title, t("Title")) %></th>
+      <th scope="col"><%= sort_link(@q, :description, t("description")) %></th>
+      <th scope="col"><%= sort_link(@q, :language, t("language")) %></th>
+      <th scope="col"><%= sort_link(@q, :created_at, t("created_at")) %></th>
+      <th scope="col"><%= sort_link(@q, :status, t("status")) %></th>
+      <th scope="col"><%= sort_link(@q, :user_name_or_email_or_role, t("author")) %></th>
       <th scope="col"><%= link_to t("category"), categories_path %></th>
-      <th scope="col"><%= sort_link(@q, :approved, t("approved"), default_order: :asc) %></th> 
+      <th scope="col"><%= sort_link(@q, :approved, t("approved")) %></th> 
       <th scope="col"> </th>
       <th scope="col"> </th>
       <th scope="col"><%=  t("likes")%></th>
@@ -23,6 +24,7 @@
       <th scope="row"><%= article.id %></th>
       <td><%= link_to article.title, article_path(article) %></td>
       <td><%= article.description || "no description" %></td>
+      <td><%= article.language || "not chosen" %></td>
       <td><%= article.created_at %></td>
       <td><%= t("#{article.status}") %></td>
       <td><%= link_to article.user.email, user_path(article.user_id) %></td>
@@ -43,4 +45,7 @@
   
 <% end %>
  </tbody>
+   <div class="digg_pagination center article_index">    
+  <%= will_paginate @articles if @articles.count > 10%>
+</div>
 </table>
