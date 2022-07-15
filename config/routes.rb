@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]
+  get "/languages/:language", to: "language#show",  as: 'languages'
 
 
 

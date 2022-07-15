@@ -2,9 +2,9 @@
     <table  class="table-bordered">
       <% if @categories.where("approved = ?", false).count > 0%>
       <thead>
-        <th> category name </th>
-        <th> delete suggestion </th>
-        <th> check to approve </th>
+        <th> <%= t("category name")%> </th> 
+        <th> <%= t("delete suggestion")%> </th>
+        <th> <%= t("check to approve")%> </th> 
       </thead>  
       <%end%>
     <tbody>

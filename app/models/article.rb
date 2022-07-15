@@ -12,6 +12,7 @@ class Article < ApplicationRecord
     self.approver ||= nil
   end
 
+  enum language: [:english, :georgian]
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true

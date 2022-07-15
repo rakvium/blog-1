@@ -93,8 +93,17 @@ ge:
   admin: ადმინი
   New category: ახალი კატეგორია
   Category request: კატეგორიის მოთხოვნა
-  check to approve: მონიშნე დასადასტურებლად
+  check to approve: მონიშნე დადასტუებულად
   Show this category:  მაჩვენე კატეგორია
   Back to categories: ყველა კატეგორია
   Categories: კატეგორიები
   password confirmation: გაიმეორეთ პაროლი
+  language: ენა
+  categories by languages: ენის მიხედვით
+  english articles: ინგლისური სტატიები
+  georgian articles: ქართული სტატიები
+  please choose a language of your article so that readers can find your article easier: გთხოვთ აირჩიოთ თქვენი სტატიის ენა, რათა მკითხველმა მარტივად იპოვოს ის.
+  waiting for approval: ელოდება თქვენს თანხმობას
+  delete suggestion: წაშალე შემოთავაზება
+  category name: კატეგორიის სახელი
+  

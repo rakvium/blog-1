@@ -37,6 +37,13 @@
   <%= form.label t(:status) %><br>
   <%= form.select :status, ['public', 'private', 'archived', 'members only'], selected:'public' %>
   </div>
+      <br>
+  <div>
+
+  <h6><%= t("please choose a language of your article so that readers can find your article easier") %><h6>
+  <%= form.label t(:language) %><br>
+  <%= form.select :language, ['english', 'georgian'], selected:'english' %>
+  </div>
 
 
 <%if current_user.role == "admin"%>
