@@ -4,22 +4,22 @@
   <%= will_paginate @articles if @articles.count > 10%>
 </div>
 
-<div class='general'>
+  <div class='general' >
     
-    <table  >
+    <table >
        <thead>
     <tr class = 'row'>
-      <th scope="col"><%= t("article")%></th>
+      <th scope="col"></th>
       </tr> 
       </thead>
       <% @articles.each do |article| %>
     <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
-      <tbody>
-      <tr class = 'article_info'>
+      <tbody id="articles">
+      <tr >
       <td ><span class='title'><%=article.title.capitalize%></span><br>
      </td> 
        </tr>
-        <tr class = 'article_body'>
+        <tr>
        <td><%= article.description || t("no description")%> 
        <br>
        <%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-outline-light"%>
@@ -33,10 +33,10 @@
       <tr><td> <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %></td></tr>
 
 
-      <tr class = 'article_functions'>
+      <tr >
              <td> <% if user_signed_in? && current_user == article.user %>
 
-<div class='blogedit'>  
+<div>  
 
   <%= link_to t("Edit"), edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
   <%= link_to t("Destroy"), article_path(article), data: {
@@ -44,10 +44,9 @@
                     turbo_confirm: t("Are you sure?")
                   }, style: 'color: black;', class: 'btn btn-outline-secondary' %>
                   </div>
-<%end%> </td>
+                <%end%> </td>
 
       </tr>
-
 
       </tbody>
      

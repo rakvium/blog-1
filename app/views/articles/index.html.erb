@@ -1,6 +1,3 @@
-<p> Our blog has <%= pluralize(Article.where('approved = ?', true).public_count, "article") %> and counting! </p>
-
-
 <%= search_form_for @q, remote: true do |f| %>
   <%= f.search_field :title_or_description_cont, placeholder: t('search for articles'), class: "form-control"  %>
   <%= f.submit%>

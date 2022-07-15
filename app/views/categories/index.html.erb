@@ -1,15 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1 style="font-family: Arabic Typesetting"><%=t("Categories")%>:</h1>
 
 <div id="categories">
   <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) if category.approved == true%>
+    <%= link_to category.name, category_path(category), {:class => "btn btn-outline-danger"} if (category.approved == true && category.articles.count>0)%>
+    <%= category.name if (category.approved == true && category.articles.count==0)%> 
   <% end %>
 </div>
 
 <% if user_signed_in? && current_user.role == 'admin'%>
-  <%= link_to t("New category"), new_category_path %>
+  <%= link_to t("New category"), new_category_path, {:class => "btn btn-secondary"} %>
   <p>  <%= @categories.where('approved = ?', false).count%>
 <%= "waiting for approval"%>:<p>
   <%=render partial: 'unapproved'%>
