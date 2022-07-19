@@ -4,6 +4,10 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <img src = "<%= @user.avatar %>", style="width: 150px; ">
 
+  <div class="field">
+    <%= f.label t(:username) %><br />
+    <%= f.text_field :user_name, autofocus: true, class: "form-control" %>
+  </div>  
 
   <div class="field">
     <%= f.label t(:email) %><br />

@@ -1,0 +1,9 @@
+<h1><%= t("New phone")%></h1>
+
+<%= render "form", phone: @phone, user: @user %>
+
+<br>
+
+<div>
+  <%= link_to t("Back to phones"), user_phones_path(@user), class: "btn btn" %>
+</div>

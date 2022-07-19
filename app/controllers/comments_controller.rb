@@ -6,15 +6,21 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     respond_to do |format|
-      if    @comment.save
+      if @comment.save
 
         format.html { redirect_to article_url(@article), notice: "comment was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to article_url(@article), status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path(@article), status: 303
   end
 
   private

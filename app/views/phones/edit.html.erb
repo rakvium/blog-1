@@ -1,0 +1,10 @@
+<h1>Editing phone</h1>
+
+<%= render "form", phone: @phone, user: @user %>
+
+<br>
+
+<div>
+  <%= link_to "Show this phone", user_phone_path(@user, @phone) %> |
+  <%= link_to "Back to phones", user_phones_path(@user) %>
+</div>

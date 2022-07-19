@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-  resources :users
+  resources :users do
+    resources :phones
+  end
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]
   get "/languages/:language", to: "language#show",  as: 'languages'

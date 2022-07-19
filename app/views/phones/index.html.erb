@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+    <% n = 0 %>
+  <% @user.phones.each do |phone| %>
+  <div id="phones">
+    <%= n+= 1 %>
+    <%= render phone %>
+
+    <% if (user_signed_in?) && (current_user[:id] == params[:user_id].to_i)%>
+        <%= link_to t("Edit this number"), edit_user_phone_path(@user,phone),  class: "btn btn-outline-dark" %> 
+
+        <%= link_to t("Delete number"), [phone.user, phone], data: {
+                      turbo_method: :delete,
+                      turbo_confirm: t("Are you sure?")
+                    },  class: "btn btn-outline-danger" %>
+    <%end%>
+</div>
+
+    <br>
+  <% end %>
+
+
+  <% if (user_signed_in?) && (current_user[:id] == params[:user_id].to_i)%>
+    <%= link_to t("New phone"), new_user_phone_path(@user), class: "btn btn-primary"  %>
+  <% end %>

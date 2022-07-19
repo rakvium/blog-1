@@ -1,7 +1,10 @@
   <img src = "<%= @user.avatar %>", style="width: 150px"> 
   <ul>
     <li>  <%= t("username")%>: <%= @user.user_name%>  </li>
+    <% if user_signed_in? && current_user.role == 'admin'%>
     <li>  <%= t("role")%>: <%=t("#{@user.role }")%>  </li>
+    <%end%>
+    <li>  <%= link_to t("contact"), user_phones_path(@user)%> </li>
   </ul>
 <% if user_signed_in?%>
   <%if params[:user_id] == current_user[:id] %>
@@ -11,8 +14,6 @@
 <%end%>
 
 <%= render 'articles/articles', articles: @articles %>
-
-
 
 
 

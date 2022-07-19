@@ -39,10 +39,6 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @approver = Approver.new
-    @approver.user_id = current_user
-    @approver.article_id = @article
-    @approver.save
 
     if @article.update(article_params)
       redirect_to @article
