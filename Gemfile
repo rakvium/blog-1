@@ -63,6 +63,7 @@ gem 'jquery-rails'
 gem "letter_opener", group: :development
 gem "faker"
 
+gem 'stripe'
 
 
 # Use Sass to process CSS
