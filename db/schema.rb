@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_19_062227) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_071420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -124,6 +124,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_062227) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "phones", force: :cascade do |t|
     t.string "phone"
     t.string "country"
@@ -131,6 +138,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_062227) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_phones_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "plan_id"
+    t.string "customer_id"
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.datetime "current_period_start"
+    t.datetime "current_period_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -149,6 +168,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_062227) do
     t.integer "role"
     t.string "language"
     t.string "avatar"
+    t.string "stripe_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -168,4 +188,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_062227) do
   add_foreign_key "likes", "articles", column: "likeable_id"
   add_foreign_key "likes", "users"
   add_foreign_key "phones", "users"
+  add_foreign_key "subscriptions", "users"
 end

@@ -19,7 +19,7 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :dislikes, dependent: :destroy
     has_many :phones, dependent: :destroy
-
+    has_many :subscriptions, dependent: :destroy
 
     # User Avatar Validation
 
