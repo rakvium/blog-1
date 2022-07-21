@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get "/languages/:language", to: "language#show",  as: 'languages'
 
 
+  scope controller: :static do
+    get :pricing
+  end
 
   scope "admin" do
     delete "users/:id", to: "admin#user_destroy", via: 'delete', as: 'admin_destroy_user'
