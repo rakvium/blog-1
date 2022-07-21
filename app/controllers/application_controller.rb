@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_stripe_key
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :set_locale
@@ -34,6 +35,9 @@ end
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :language, :user_name, :avatar])
   end
 
+  def set_stripe_key
+    Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret)
+  end
 end
 
 

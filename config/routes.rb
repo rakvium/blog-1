@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   resources :categories
 
@@ -23,6 +24,14 @@ Rails.application.routes.draw do
   scope controller: :static do
     get :pricing
   end
+  get "/success", to: "purchase/checkouts#success"
+
+
+  namespace :purchase do
+    resources :checkouts
+  end
+
+  resources :subscriptions
 
   scope "admin" do
     delete "users/:id", to: "admin#user_destroy", via: 'delete', as: 'admin_destroy_user'
