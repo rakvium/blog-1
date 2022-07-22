@@ -58,15 +58,12 @@ body{
  #articles{
   display:block;
   background-color: #ffffff;
-  border: 2px solid rgba(255, 128, 128, 0.227);
   border-collapse: separate;
   border-spacing: 8px; 
-  margin: 20px;
-  border-radius: 1%;
 }
 
  .aticlestable{
-  width: fit-content;
+  width:auto;
   block-size: fit-content
  }
 
@@ -140,6 +137,8 @@ body{
 .digg_pagination {
   background: #ffffff00;
   cursor: default;
+  position: relative;
+  
   /* self-clearing method: */ }
   .digg_pagination a, .digg_pagination span, .digg_pagination em {
     padding: 0.2em 0.5em;

@@ -1,6 +1,6 @@
 
    <% %>
-<div class="digg_pagination center article_index">    
+<div class="digg_pagination center pagination justify-content-center">    
   <%= will_paginate @articles if @articles.count > 10%>
 </div>
 
@@ -14,40 +14,45 @@
       </thead>
       <% @articles.each do |article| %>
     <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
-      <tbody id="articles">
-      <tr >
-      <td ><span class='title'><%=article.title.capitalize%></span><br>
-     </td> 
-       </tr>
-        <tr>
-       <td><%= article.description || t("no description")%> 
-</td>
-      </tr>
-      <tr>
-      <td> <%= t("category:")%> <% Category.where(id: article.category_ids).find_each do |category|%>
-      <%= link_to category.name, category_path(category.id) %>   
-      <%end%></td>
-      </tr>
-        <tr><td> <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %></td></tr>
-          <td style="text-align:right"><%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-light"%></td>      <tr >
-          <td> <% if user_signed_in? && current_user == article.user %>
+      <tbody id="articles" style="margin-top:20px">
 
-            <div>  
-              <%= link_to t("Edit"), edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
-              <%= link_to t("Destroy"), article_path(article), data: {
-                                turbo_method: :delete,
-                                turbo_confirm: t("Are you sure?")
-                              }, style: 'color: black;', class: 'btn btn-outline-secondary' %>
-            </div>
-                <%end%>
+      <tr >
+        <td ><span class='title'><%=article.title.capitalize%></span><br> </td> 
+      </tr>
+
+      <tr>
+       <td><%= article.description || t("no description")%></td>
+      </tr>
+
+      <tr>
+        <td> <%= t("category:")%> <% Category.where(id: article.category_ids).find_each do |category|%>
+        <%= link_to category.name, category_path(category.id) %>   
+        <%end%></td>
+      </tr>
+
+      <tr>
+        <td> <%= t("by")%>: <%= link_to article.user.email, user_path(article.user), {:class => "btn btn-secondary"} %></td></tr>
+        <td> <% if user_signed_in? && current_user == article.user %>
+          <div>  
+            <%= link_to t("Edit"), edit_article_path(article), {:class => "btn btn-outline-secondary"} %> 
+            <%= link_to t("Destroy"), article_path(article), data: {
+                              turbo_method: :delete,
+                              turbo_confirm: t("Are you sure?")
+                            }, style: 'color: black;', class: 'btn btn-outline-secondary' %>
+          </div>
+         <%end%>
         </td>
       </tr>
     </tbody> 
+
+      <tr style="margin-bottom:20px; background-color:white">
+        <td style="text-align:right"><%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-dark"%></td>      <tr >
+      <tr>
   <% end %>
 
   <% end %> 
       </table>
-</div>
-    <div class="digg_pagination center">    
+    </div>
+    <div class="digg_pagination center pagination justify-content-center">    
       <%= will_paginate @articles%>
     </div>
