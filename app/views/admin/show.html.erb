@@ -1,10 +1,9 @@
 
-<p> email: <%= @user.email%> </p>
-<p>role: <%= @user.role %></p>
+<p> <%= t("email")%>: <%= @user.email%> </p>
+<p><%= t("role")%>: <%= t("#{@user.role}") %></p>
 
 
-
-  <%= link_to "users", users_path %>
-  <%= link_to "all articles", articles_path %>
+  <%= link_to t("users"), users_path %>
+  <%= link_to t("all articles"), articles_path %>
 
 

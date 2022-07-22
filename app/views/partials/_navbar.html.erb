@@ -81,14 +81,14 @@
 
         <li class="nav-item">
           <%= link_to t("subscribe"),
-            pricing_path, class:"nav-link text-light" %>
+            pricing_path, class:"nav-link text-white" %>
         </li>
       </ul>
     </div>
 
       <% if user_signed_in? %>
        <% if current_user.payed == true %>
-       <%= link_to "members only", members_only_articles_path %>
+       <%= link_to t("members only"), members_only_articles_path, class:"nav-link text-light" %>
       <% end %>
       <% end %>
   </nav>
