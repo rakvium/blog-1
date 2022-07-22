@@ -85,5 +85,8 @@
         </li>
       </ul>
     </div>
+       <% if current_user.payed == true %>
+       <%= link_to "members only", members_only_articles_path %>
+      <% end %>
   </nav>
 </body>

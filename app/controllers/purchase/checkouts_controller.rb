@@ -18,7 +18,8 @@ class Purchase::CheckoutsController < ApplicationController
         price: price
       }]
     )
-
+    current_user.payed = true
+    current_user.save
     redirect_to session.url, allow_other_host: true
   end
 

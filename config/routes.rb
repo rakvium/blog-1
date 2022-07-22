@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]
   get "/languages/:language", to: "language#show",  as: 'languages'
-
+  get "/members_only/articles", to: "members#articles", as: 'members_only_articles'
 
   scope controller: :static do
     get :pricing
