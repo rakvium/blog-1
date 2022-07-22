@@ -48,7 +48,7 @@
 
 <h4><%= t("Unhappy? Cancel your account")%></h4>
 
-<p> <%= button_to t("Cancel my account"), registration_path(resource_name), data: { turbo_confirm: "Are you sure?" }, method: :delete, :class => "btn btn-secondary" %></p>
+<p> <%= button_to t("Cancel my account"), registration_path(resource_name), form: {data: {turbo_confirm: 'Are you sure?'}}, method: :delete, :class => "btn btn-secondary" %></p>
 
 <%= link_to t("Back"), :back, {:class => "btn btn-secondary"} %>
 
