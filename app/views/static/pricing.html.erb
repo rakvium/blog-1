@@ -16,10 +16,7 @@
       <input type="hidden" name="price_id" value="<%= Rails.application.credentials.dig(:stripe, :pricing, :monthly)%>" />
       <input type="submit" value="Subscribe for $4/mo" class="px-3 py-4 bg-teal-600 " />
       <%end%>
-      <%= form_tag purchase_checkouts_path, mehtod: :post, data: {turbo: false} do %>
-      <input type="hidden" name="price_id" value="<%= Rails.application.credentials.dig(:stripe, :pricing, :annual)%>" />
-      <input type="submit" value="Subscribe for $40/yr" class="px-3 py-4 bg-teal-600 " />
-      <%end%>
+
     <% else %>
         <%= link_to "Subscribe for $4/mo", new_user_session_path, class:"px-3 py-4 bg-teal-600 " %>
         <%= link_to "Subscribe for $40/yr", new_user_session_path, class:"px-3 py-4 bg-teal-600 " %>
