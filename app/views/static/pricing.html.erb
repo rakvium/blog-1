@@ -11,12 +11,15 @@
     to our private community.
   </p>
   <div class="grid grid-cols-2 gap-6">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.payed == false %>
       <%= form_tag purchase_checkouts_path, mehtod: :post, data: {turbo: false} do %>
       <input type="hidden" name="price_id" value="<%= Rails.application.credentials.dig(:stripe, :pricing, :monthly)%>" />
       <input type="submit" value="Subscribe for $4/mo" class="px-3 py-4 bg-teal-600 " />
       <%end%>
 
+    <% elsif user_signed_in? && current_user.payed == true %>
+      <h1> <%= current_user.user_name%>, you are already subscribed to the bloggold</h1>
+      <h3> you can see "members only" articles </h3>
     <% else %>
         <%= link_to "Subscribe for $4/mo", new_user_session_path, class:"px-3 py-4 bg-teal-600 " %>
         <%= link_to "Subscribe for $40/yr", new_user_session_path, class:"px-3 py-4 bg-teal-600 " %>

@@ -12,7 +12,7 @@
       <th scope="col"></th>
       </tr> 
       </thead>
-      <% @articles.where("status = ?", "members only").each do |article| %>
+      <% @articles.each do |article| %>
     <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
       <tbody id="articles" style="margin-top:20px">
 
