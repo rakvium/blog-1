@@ -9,7 +9,7 @@
   <%= link_to t("Edit this category"), edit_category_path(@category) %> |
   <%= link_to t("Back to categories"), categories_path %>
 
-  <%= button_to t("Destroy this category"), @category, method: :delete %>
+  <%= button_to t("Destroy this category"), @category, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
 </div>
 <% end%>
 

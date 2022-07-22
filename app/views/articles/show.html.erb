@@ -1,5 +1,6 @@
 <div class="article_show">
 <h1><%= current_user == @article.user ||(current_user.role == 'admin' if user_signed_in?) ? (link_to @article.title, edit_article_path(@article)) :  @article.title %></h1>
+<h6 style=" font-style: italic; "><%= @article.status%></h6>
 <p><%= @article.body %></p>
 <p class='author'> author : <%= link_to @article.user.email.split("@")[0], user_path(@article.user), {:class => "btn btn-outline-secondary"}
   %> 

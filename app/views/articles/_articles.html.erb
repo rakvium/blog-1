@@ -14,12 +14,10 @@
       </thead>
       <% @articles.each do |article| %>
     <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
-      <tbody id="articles" style="margin-top:20px">
-
-      <tr >
-        <td ><span class='title'><%=article.title.capitalize%></span><br> </td> 
+      <tbody id="articles" style="margin-top:20px" class="<%='golden' if article.status == 'members only'%>">
+      <tr>
+        <td><span class='title'><%=article.title.capitalize%></span><br> </td> 
       </tr>
-
       <tr>
        <td><%= article.description || t("no description")%></td>
       </tr>
