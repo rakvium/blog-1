@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article
+  
   def create
     @comment= @article.comments.new(comment_params)
     @comment.user = current_user
@@ -14,6 +15,19 @@ class CommentsController < ApplicationController
         format.html { redirect_to article_url(@article), status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

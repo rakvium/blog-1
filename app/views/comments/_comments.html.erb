@@ -8,6 +8,7 @@
                     turbo_method: :delete,
                     turbo_confirm: t("Are you sure?")
                   },  class: "btn btn-outline-light" %>
+      <%= link_to t('Edit'), edit_article_comment_path(@article, comment), class: "btn btn-outline-pimary" %> 
       <% end %>
     </div>
   <%end%>
