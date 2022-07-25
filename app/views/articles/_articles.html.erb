@@ -1,7 +1,7 @@
 
    <% %>
 <div class="digg_pagination center pagination justify-content-center">    
-  <%= will_paginate @articles if @articles.count > 10%>
+  <%= will_paginate @articles.where.not(status: 'members only') if @articles.count > 10%>
 </div>
 
   <div class='general' >
@@ -12,9 +12,9 @@
       <th scope="col"></th>
       </tr> 
       </thead>
-      <% @articles.each do |article| %>
+      <% @articles.where.not(status: 'members only').each do |article| %>
     <% unless article.archived? || (article.private? || article.approved == false && article.user != current_user) %>    
-      <tbody id="articles" style="margin-top:20px" class="<%='golden' if article.status == 'members only'%>">
+      <tbody id="articles" style="margin-top:20px" >
       <tr>
         <td><span class='title'><%=article.title.capitalize%></span><br> </td> 
       </tr>
@@ -52,5 +52,5 @@
       </table>
     </div>
     <div class="digg_pagination center pagination justify-content-center">    
-      <%= will_paginate @articles%>
+      <%= will_paginate @articles.where.not(status: 'members only')%>
     </div>
