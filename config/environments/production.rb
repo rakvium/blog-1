@@ -93,10 +93,13 @@ Rails.application.configure do
 
   #confirmations
   config.action_mailer.default_url_options = {:host => 'https://bloggold.herokuapp.com/'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'https://bloggold.herokuapp.com/'
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address              =>  'smtp.sendgrid.net',
+    :port                 =>  '587',
+    :authentication       =>  :plain,
+    :user_name            =>  '1surmavamaiam@gmail.com',
+    :password             =>  'marokoko',
+    :domain               =>  'heroku.com',
+    :enable_starttls_auto  =>  true
   }
-end
