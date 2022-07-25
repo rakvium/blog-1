@@ -63,8 +63,11 @@ gem 'jquery-rails'
 gem "letter_opener", group: :development
 gem "faker"
 
+#for paymets:
 gem 'stripe'
 
+#mobile phone validations:
+gem 'telephone_number'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
