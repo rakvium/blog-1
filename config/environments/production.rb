@@ -101,8 +101,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'bloggold.herokuapp.com',
-    user_name:            '1surmavamariam@gmail.com'
-    password:             'fmkrvbgwedewnesf'
+    user_name:            '1surmavamariam@gmail.com',
+    password:             'fmkrvbgwedewnesf',
     authentication:       :plain,
     enable_starttls_auto: true }
 
