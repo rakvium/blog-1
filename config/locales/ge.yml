@@ -106,7 +106,7 @@ ge:
   waiting for approval: ელოდება თქვენს თანხმობას
   delete suggestion: წაშალე შემოთავაზება
   category name: კატეგორიის სახელი
-  contact: საკონტაქტო
+  contact: საკონტაქტო ინფორმაცია
   Phone: ტელეფონის ნომერი
   Country: ქვეყანა
   Edit this number: ნომრის რედაქტირება
@@ -123,3 +123,17 @@ ge:
   Edit this phone: ნომრის რედაქტირება 
   Delete phone: ნომრის წაშლა
   Back to contacts: ნომრებში დაბრუნება
+  add location: მისამართის დამატება
+  locations: მისამართები
+  search: ძიება
+  latitude: განედი 
+  longitude: გრძედი
+  Name: დასახელება
+  name: დასახელება
+  Latitude: განედი
+  Longitude: გრძედი
+  Show this place: მაჩვენე ეს მისამართი
+  Back to places: ყველა მისამართის ნახვა  
+  New place: ახალი მისამართის დამატება
+  Destroy this place: მისამართის წაშლა
+  Edit this place: მისამართის რედაქტირება

@@ -1,26 +1,26 @@
   <img src = "<%= @user.avatar %>", style="width: 150px"> 
-  <ul>
-    <li>  <%= t("username")%>: <%= @user.user_name%>  </li>
+  
+    <h1>  <%= @user.user_name%>  </h1>
+  <ul>  
     <% if user_signed_in? && current_user.role == 'admin'%>
     <li>  <%= t("role")%>: <%=t("#{@user.role }")%>  </li>
     <%end%>
-    <li>  <%= link_to t("contact"), user_phones_path(@user)%> </li>
   </ul>
-<% if user_signed_in?%>
-  <%if params[:user_id] == current_user[:id] %>
-    <%= link_to t("create new article"), new_article_path,  {:class => "btn btn-outline"} %>
-    <%= link_to t("all articles"), articles_path,  {:class => "btn btn-outline"} %>
-  <% end %>
-<%end%>
+  
+    <%= link_to t("contact"), user_phones_path(@user), {:class => "btn btn-dark"}%> 
 
-<%= render 'articles/articles', articles: @articles %>
+    <%= link_to t('locations'), user_locations_path, {:class => "btn btn-dark"}%>
+
 <% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
+    <%= link_to t("add location"), new_place_path,  {:class => "btn btn-dark"} %>
 
-  <%= link_to t("add location"), new_place_path,  {:class => "btn btn-outline"} %>
+  <%= link_to t("create new article"), new_article_path,  {:class => "btn btn-light"} %>
 
 <% end %>
 
-<%= link_to 'locations', user_locations_path, {:class => "btn btn-outline"}%>
+
+
+<%= render 'articles/articles', articles: @articles %>
 
 
 

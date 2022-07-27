@@ -5,9 +5,9 @@
   <% @places.each do |place| %>
     <%= render place %>
     <p>
-      <%= link_to "Show this place", place %>
+      <%= link_to t("Show this place"), place %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New place", new_place_path %>
+<%= link_to t("New place"), new_place_path %>
