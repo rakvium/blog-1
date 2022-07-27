@@ -1,0 +1,24 @@
+<div id="<%= dom_id place %>">
+  <p>
+    <strong><%= t('Name')%>:</strong>
+    <%= place.name %>
+  </p>
+
+
+  <p>
+    <strong><%= t('Latitude')%>:</strong>
+    <%= place.latitude %>
+  </p>
+
+  <p>
+    <strong><%= t('Longitude')%>:</strong>
+    <%= place.longitude %>
+  </p>
+<p>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&center=#{place.latitude},#{place.longitude}&key=#{Rails.application.credentials.dig(:MAPS_API_KEY)}", alt: "Map" %>
+
+</p>
+
+</div>
+
+

@@ -1,0 +1,10 @@
+<div id="places">
+  <% @user.places.each do |place| %>
+    <%= render place %>
+    <% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
+    <p>
+      <%= link_to t("Show this place"), place %>
+    </p>
+    <% end %>
+  <% end %>
+</div>
