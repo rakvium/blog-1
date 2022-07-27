@@ -32,6 +32,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def explore
+    @articles = Article.all.shuffle
+  end
+
   def edit
     @article = Article.find(params[:id])
     @categories = Category.all

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get "/languages/:language", to: "language#show",  as: 'languages'
   get "/members_only/articles", to: "members#articles", as: 'members_only_articles'
   get "/:id/locations", to: "users#locations", as: 'user_locations'
+  get "/explore", to: "articles#explore", as: 'explore_articles'
+
 
   scope controller: :static do
     get :pricing
