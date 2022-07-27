@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ .map {
+  width: 100%;
+  min-height: 400px;
+}
+
  #phones {
   display:block;
   background-color: #ffffff52;

@@ -14,6 +14,13 @@
 <%end%>
 
 <%= render 'articles/articles', articles: @articles %>
+<% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
+
+  <%= link_to t("add location"), new_place_path,  {:class => "btn btn-outline"} %>
+
+<% end %>
+
+<%= link_to 'locations', user_locations_path, {:class => "btn btn-outline"}%>
 
 
 

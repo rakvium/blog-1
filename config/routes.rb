@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   resources :categories
+  resources :places
 
   devise_for :users
   resources :categories
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   resources :dislikes, only: [:create, :destroy]
   get "/languages/:language", to: "language#show",  as: 'languages'
   get "/members_only/articles", to: "members#articles", as: 'members_only_articles'
+  get "/:id/locations", to: "users#locations", as: 'user_locations'
 
   scope controller: :static do
     get :pricing

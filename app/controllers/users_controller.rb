@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   def pundit_user
     User.find(current_user.id)
   end
+
+  def locations
+    @user = User.find(params[:id])
+  end
   
   private
 
