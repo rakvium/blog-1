@@ -1,8 +1,6 @@
 <%= render @place %>
 
 <div>
-  <%= link_to t("Edit this place"), edit_place_path(@place) %> |
-  <%= link_to t("Back to places"), places_path %>
-
-  <%= button_to t("Destroy this place"), @place, method: :delete %>
+  <%= link_to t("Edit this place"), edit_place_path(@place), class: "btn btn-outline-danger" %> 
+  <p> <%= button_to t("Destroy this place"), @place, method: :delete , class: "btn btn-outline-danger"%> </p>
 </div>

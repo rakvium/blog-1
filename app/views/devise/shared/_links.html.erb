@@ -18,4 +18,4 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-  <%= button_to 'hgvhg', user_google_oauth2_omniauth_authorize_path,  method: :post, data: { turbo: "false" }%>
+<%= button_to 'sign in with google', user_google_oauth2_omniauth_authorize_path, class: 'btn' ,method: :post, data: { turbo: "false" }%>

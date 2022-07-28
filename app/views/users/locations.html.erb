@@ -3,7 +3,7 @@
     <%= render place %>
     <% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
     <p>
-      <%= link_to t("Show this place"), place %>
+      <%= link_to t("Show this place"), place, class: "btn btn-outline-dark" %>
     </p>
     <% end %>
   <% end %>

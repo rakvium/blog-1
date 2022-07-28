@@ -34,9 +34,10 @@ class User < ApplicationRecord
           user = User.create(
              email: data['email'],
              user_name: data['email'].split("@").first.gsub(/[^0-9a-zA-Z]/i, '').downcase[0,12],
-             password: Devise.friendly_token[0,20]
+             password: Devise.friendly_token[0,20],
+             confirmed_at: Time.now
           )
-          user.skip_confirmation!
+          # user.skip_confirmation!
           return { user: user, new_user: true }
       end
      { user: user, new_user: false }
