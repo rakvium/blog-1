@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  include ActiveModel::Dirty
+
 
     def index
       @q = Article.ransack(params[:q])
@@ -43,8 +45,12 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-
+    @user=@article.user
+    @article_changed = @article.approved 
+    binding.irb
     if @article.update(article_params)
+      ArticleMailer.with(user: @user, article: @article).approved_email.deliver if (@article.approved_changed?(from: false, to: true))
+      # binding.irb
       redirect_to @article
     else
       render :edit, status: :unprocessable_entity

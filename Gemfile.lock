@@ -93,6 +93,7 @@ GEM
     childprocess (4.1.0)
     chronic (0.10.2)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     countries (4.2.3)
       i18n_data (~> 0.16.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -251,6 +252,7 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    redis (3.3.5)
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -284,6 +286,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (4.2.10)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     simple_po_parser (1.1.6)
     sixarm_ruby_unaccent (1.2.0)
     sort_alphabetical (1.1.0)
@@ -359,6 +366,7 @@ DEPENDENCIES
   ransack
   rspec-rails
   selenium-webdriver
+  sidekiq (~> 4.1, >= 4.1.2)
   sprockets-rails
   stimulus-rails
   stripe
