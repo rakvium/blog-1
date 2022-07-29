@@ -21,6 +21,6 @@
 set :output, "log/cron.log"
 set :environment, "development"
 
-every 1.minute do
+every 1.day, at: '11:30 am' do
   rake 'inactive:delete'
 end
