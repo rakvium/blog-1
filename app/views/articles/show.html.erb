@@ -44,16 +44,15 @@
 <%end%>
 </div>
 <br>
+<div>
+ <%if user_signed_in?%>
+    <%= render 'comments/form', submit_tag: "comment", article: @article, comment: @article.comments.build %>
+  <%end%>  
 
+</div>
 <% if @article.comments.count>0 %>
   <h5><%= t("comments")%> : </h5>
 <div class="container">
-<% if user_signed_in? %>
-  <%= render 'comments/form', 
-    article: @article, 
-    comment: @article.comments.build,
-    submit_tag: "comment" %>
-    <%end%>
   <% @comments.each do |comment| %>
     <%= render 'comments/comment', 
     article: @article, 
@@ -64,11 +63,4 @@
     <%= will_paginate @comments%>
   </div>
 <% end %>
-<%
-=begin%>
- <%if user_signed_in?%>
-    <%= render 'comments/form', submit_tag: "comment" %>
-  <%end%>  
-<%
-=end%>
-</div>
+
