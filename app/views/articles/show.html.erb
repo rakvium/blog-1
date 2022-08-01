@@ -47,12 +47,26 @@
 
 <% if @article.comments.count>0 %>
   <h5><%= t("comments")%> : </h5>
-  <%= render 'comments/comments'%>
+<div class="container">
+  <%= render 'comments/form', 
+    article: @article, 
+    comment: @article.comments.build,
+    submit_tag: "comment" %>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', 
+    article: @article, 
+    comment: comment %>
+  <% end %>
+</div>  
   <div class="digg_pagination center">
     <%= will_paginate @comments%>
   </div>
 <% end %>
-<%if user_signed_in?%>
-    <%= render 'comments/form' %>
-  <%end%> 
+<%
+=begin%>
+ <%if user_signed_in?%>
+    <%= render 'comments/form', submit_tag: "comment" %>
+  <%end%>  
+<%
+=end%>
 </div>
