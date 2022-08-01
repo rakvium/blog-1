@@ -2,5 +2,5 @@
 
 <div>
   <%= link_to t("Edit this place"), edit_place_path(@place), class: "btn btn-outline-danger" %> 
-  <p> <%= button_to t("Destroy this place"), @place, method: :delete , class: "btn btn-outline-danger"%> </p>
+  <p> <%= button_to t("Destroy this place"), @place, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} , class: "btn btn-outline-danger"%> </p>
 </div>

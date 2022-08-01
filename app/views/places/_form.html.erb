@@ -2,10 +2,7 @@
                                             controller: :maps,
                                             action: "google-maps-callback@window->maps#initializeMap"
                                           } do |form| %>
-  <div class="field">
-    <%= form.label t(:name) %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
+
 
   <div class="field">
     <%= form.label t(:search) %>
