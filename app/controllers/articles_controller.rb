@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   include ActiveModel::Dirty
-
+  before_action :set_article, only: %i[ update]
+  before_action :check_if_changed, only: %i[ update]
 
     def index
       @q = Article.ransack(params[:q])
@@ -44,12 +45,12 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
     @user=@article.user
-    @article_changed = @article.approved 
-    binding.irb
+    @article.approved_will_change!
+      # binding.irb
+
+      SendEmailJob.perform_now(@article)  if (@current_value == true && check_if_changed == true )
     if @article.update(article_params)
-      ArticleMailer.with(user: @user, article: @article).approved_email.deliver if (@article.approved_changed?(from: false, to: true))
       # binding.irb
       redirect_to @article
     else
@@ -70,5 +71,16 @@ class ArticlesController < ApplicationController
   private
     def article_params
       params.require(:article).permit(:title, :status, :language, :approved,:description, :body, categories_attributes: [:name, :destroy], category_ids: [])
+    end
+
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
+    def check_if_changed
+      @current_value = params.require(:article)[:approved]
+      @current_value = true if params.require(:article)[:approved] == '1'
+      @current_value = false if params.require(:article)[:approved] == '0'
+      @article.approved != @current_value
     end
 end
