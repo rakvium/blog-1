@@ -10,7 +10,7 @@ class DislikesController < ApplicationController
 
       @like.destroy  if !@like.nil?
       respond_to do |format|
-        format.js {render inline: "location.reload();" }
+        format.js {render inline: "javascript:location.reload();" }
       end
     end
   
@@ -18,7 +18,7 @@ class DislikesController < ApplicationController
     @dislike = current_user.dislikes.find(params[:id])
     @dislike.destroy
     respond_to do |format|
-      format.js {render inline: "location.reload();" }
+      format.js {render inline: "javascript:location.reload();" }
     end
   end
   
