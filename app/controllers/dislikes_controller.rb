@@ -1,5 +1,6 @@
 class DislikesController < ApplicationController
   before_action :get_like, only: %i[create]
+  before_action :get_article
 
     def create
       @dislike = current_user.dislikes.new(dislike_params)
@@ -10,7 +11,7 @@ class DislikesController < ApplicationController
 
       @like.destroy  if !@like.nil?
       respond_to do |format|
-        format.js {render inline: "javascript:location.reload();" }
+        format.html { redirect_to article_url(@article) }
       end
     end
   
@@ -18,7 +19,7 @@ class DislikesController < ApplicationController
     @dislike = current_user.dislikes.find(params[:id])
     @dislike.destroy
     respond_to do |format|
-      format.js {render inline: "javascript:location.reload();" }
+      format.html { redirect_to article_url(@article) }
     end
   end
   
@@ -31,4 +32,9 @@ class DislikesController < ApplicationController
    def get_like
     @like = current_user.likes.find_by(params[:dislikeable_id])
    end
+
+   def get_article
+    @article = Article.find_by(params[:likeable_id])
+   end
+
 end
