@@ -1,9 +1,6 @@
-<%= form_with model: [ @article, @comment], local: true do |form| %>
-<div class="newcomment">
-  <p>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-</div>
+<%= form_with(model: [article, comment]) do |f| %>
+  <div class="form-control">
+    <%= f.text_area :body %>
+    <%= f.submit submit_tag, class: "btn btn-primary mt-1" %>
+  </div>
 <% end %>
