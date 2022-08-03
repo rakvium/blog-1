@@ -1,8 +1,9 @@
-<%= search_form_for @q, remote: true do |f| %>
-  <%= f.search_field :title_or_description_cont, placeholder: t('search for articles'), class: "form-control"  %>
-  <%= f.submit%>
-<% end %>
-
+<div style="text-align:center; margin-top:20px">
+  <%= search_form_for @q, remote: true do |f| %>
+    <%= f.search_field :title_or_description_cont, placeholder: t('search for articles'), style: "text-align:center"  %>
+    <%= f.submit :class => "btn btn-dark"%>
+  <% end %>
+</div>
 <% if user_signed_in? && current_user.role == "admin" %>
   <%= render "partials/allarticles", articles: @articles%>
 <%else%>

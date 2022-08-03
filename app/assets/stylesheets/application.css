@@ -28,8 +28,9 @@
   margin: 20px;
   padding: 5px;
   border-radius: 1%; }
+  
 body{
-  background-color: hsl(0, 0%, 91%);
+  background-color:rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +45,7 @@ body{
 }
 
 .article_form{
-  width: 80%;
+  width: 100%;
   border-radius: 3%;
   background-color: rgb(255, 255, 255);
   padding: 15px;
@@ -78,6 +79,7 @@ body{
   background-color: rgba(255, 255, 255, 0.451);
   padding: 15px;
   position: relative;
+  top: 200px;
   align-self: center;
   margin: auto;
   border-radius: 2%;

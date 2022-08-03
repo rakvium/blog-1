@@ -23,6 +23,6 @@ class CommentNotification < Noticed::Base
     @comment = Comment.find(params[:comment][:id])
     @article = Article.find(params[:comment][:article_id])
     @user = User.find(@comment.user_id)
-    "#{@user.user_name} commented on #{@article.title.truncate_words(10)}"
+    "#{@user.user_name} #{t("commented on")} #{@article.title.truncate_words(10)}"
   end
 end

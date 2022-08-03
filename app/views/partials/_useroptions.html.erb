@@ -1,0 +1,21 @@
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-circle" style="font-size: 1.5em; color: DarkSalmon;"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+        <li class="dropdown-item">
+          <%= link_to t("subscribe"),
+            pricing_path, class:"nav-link text-danger" %>
+        </li>
+        <li class="dropdown-item">
+          <%= link_to t("edit profile"),
+            edit_user_registration_path, class:"nav-link text-dark" %>
+        </li>
+        <li class="dropdown-item">
+          <%= link_to t("log out"),
+          destroy_user_session_url, method: :delete, class:"nav-link text-dark font-weight-bold" %>
+        </li>
+      </ul>
+  </li>
+
+

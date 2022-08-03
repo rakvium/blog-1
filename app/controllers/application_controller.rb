@@ -46,3 +46,5 @@ class ApplicationController < ActionController::Base
     @read = notifications.read
   end
 end
+
+

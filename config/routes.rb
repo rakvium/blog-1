@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     devise_scope :user do
       get '/users/sign_out' => 'devise/sessions#destroy'
     end
+
     resources :articles do
       resources :comments
+      collection do
+        match 'search' => 'articles#search', via: [:get, :post], as: :search
+      end
     end
     resources :users do
       resources :phones

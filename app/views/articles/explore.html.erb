@@ -1,28 +1,34 @@
-<%= t("Too many atricles to choose which one to start with? explore random three articles and see what fate brings to you!")%>
-<% filtered_articles = []%>
-<% @articles.each do |article| %>
-  <% unless article.archived? ||(article.private? || article.approved == false && article.user != current_user) || article.status == 'members only' %> 
-    <% filtered_articles << article %>
+<div style='margin-top:100px'>
+  <p><%= t("Too many atricles to choose which one to start with? explore random three articles and see what fate brings to you!")%></p>
+  <br>
+  <% filtered_articles = []%>
+  <% @articles.each do |article| %>
+    <% unless article.archived? ||(article.private? || article.approved == false && article.user != current_user) || article.status == 'members only' %> 
+      <% filtered_articles << article %>
+    <%end%>
   <%end%>
-<%end%>
 
-<table >
-       <thead>
-    <tr class = 'row'>
-      <th scope="col"></th>
-      </tr> 
-      </thead>  
-<% filtered_articles[0..2].each do |article| %>
-      <tbody id="articles" style="margin-top:20px" >
-      <tr>
-        <td><span class='title'><%=article.title.capitalize%></span><br> </td> 
-      </tr>
-      <tr>
-       <td><%= article.description || t("no description")%></td>
-      </tr>
-    </tbody>
-          <tr style="margin-bottom:20px; background-color:white">
-        <td style="text-align:right"><%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-dark"%></td>      <tr >
-      <tr>
-<% end %>
-</table>
+  <table >
+        <thead>
+      <tr class = 'row'>
+        <th scope="col"></th>
+        </tr> 
+        </thead>  
+  <% filtered_articles[0..2].each do |article| %>
+        <tbody id="articles" style="margin: 30px;
+  background-color: white;
+  opacity: 0.6;
+  padding: 30px">
+        <tr >
+          <td ><span class='title'><%=article.title.capitalize%></span><br> </td> 
+        </tr>
+        <tr>
+        <td><%= article.description || t("no description")%></td>
+        </tr>
+      </tbody>
+            <tr style="margin-bottom:20px; background-color:white">
+          <td style="text-align:right"><%= button_to t("read more"), article_url(article), :method => :get, class:"btn btn-dark"%></td>      <tr >
+        <tr>
+  <% end %>
+  </table>
+</div>
