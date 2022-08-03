@@ -139,3 +139,13 @@ ge:
   Edit this place: მისამართის რედაქტირება
   explore: აღმოაჩინე
   Too many atricles to choose which one to start with? explore random three articles and see what fate brings to you!: ბევრი სტატიაა და გიჭირს აარჩიო რომელი მათგანიდან დაიწყებ კითხვას? აღმოაჩინე  შემთხვევით შერჩეული სამი სტატია და ნახე რას მოგიტანს ბედი
+  prohibited this article from being saved: გამო ვერ შეიქმნა სტატია
+  prohibited this location from being saved: გამო ვერ დაემატა მისამართი
+  prohibited this phone from being saved: გამო ვერ დაემატა ნომერი
+  Title can't be blank: სათაური არ შეიძლება ცარიელი იყოს
+  Body can't be blank:  სტატიის ძირითადი ტექსტი არ შეიძლება ცარიელი იყოს
+  Name can't be blank: მისამათი არ შეიძლება იყოს ცარიელი
+  add location here: დაამატეთ მისამართი აქ
+  Phone can't be blank: ნომერი არ შეიძლება ცარიელი იყოს
+  Phone format not supported for chosen coutry: ნომრის ფორმატი არ შეესაბამება არჩეულ ქვეყანას
+  Phone Only positive number without spaces are allowed: ნომერი შეიძლება იყოს მხოლოდ დადებითი რიცხვები

@@ -3,6 +3,16 @@
                                             action: "google-maps-callback@window->maps#initializeMap"
                                           } do |form| %>
 
+  <% if place.errors.any? %>
+    <div style="color: red">
+      <h2><%= I18n.locale == :en ? pluralize(place.errors.count, "error") : "#{place.errors.count} შეცდომის გამო" %> <%= t("prohibited this location from being saved")%>:</h2>
+    <ul>
+    <% place.errors.each do |error| %>
+      <li><%= t(error.full_message) %></li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label t(:search) %>
