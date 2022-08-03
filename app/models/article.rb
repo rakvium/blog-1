@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories
   accepts_nested_attributes_for :categories, allow_destroy: true, reject_if: lambda {|attributes| attributes[:name].blank?}
   validates_associated :categories
+  has_noticed_notifications model_name: 'Notification'
+  has_many :notifications, through: :user, dependent: :destroy
 
   def set_default_approver
     self.approver ||= nil

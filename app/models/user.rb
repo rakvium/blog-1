@@ -23,7 +23,7 @@ class User < ApplicationRecord
     has_many :phones, dependent: :destroy
     has_many :subscriptions, dependent: :destroy
     has_many :places, dependent: :destroy
-
+    has_many :notifications, as: :recipient, dependent: :destroy
     # User Avatar Validation
     def self.from_omniauth(access_token)
       data = access_token.info

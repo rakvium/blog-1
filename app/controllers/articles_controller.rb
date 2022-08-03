@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @comments = @article.comments.order('created_at DESC').paginate(page: params[:page], per_page: 3)
     @comment=Comment.new
+    mark_notifications_as_read
   end
 
   def new
@@ -82,5 +83,12 @@ class ArticlesController < ApplicationController
       @current_value = true if params.require(:article)[:approved] == '1'
       @current_value = false if params.require(:article)[:approved] == '0'
       @article.approved != @current_value
+    end
+
+    def mark_notifications_as_read
+      if current_user
+        notifications_to_mark_as_read = @article.notifications_as_article.where(recipient: current_user)
+        notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
+      end
     end
 end

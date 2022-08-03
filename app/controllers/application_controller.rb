@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :set_locale
+  before_action :set_notifications, if: :current_user
 
 private
 
@@ -38,7 +39,10 @@ end
   def set_stripe_key
     Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret)
   end
+
+  def set_notifications
+    notifications = Notification.where(recipient: current_user).newest_first.limit(9)
+    @unread = notifications.unread
+    @read = notifications.read
+  end
 end
-
-
-

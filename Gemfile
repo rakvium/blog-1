@@ -108,3 +108,6 @@ gem 'whenever', require: false
 gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 
 gem 'geocoder'
+
+
+gem "noticed", "~> 1.5"
