@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article
-  
+
   def create
-    @comment= @article.comments.new(comment_params)
+    @comment = @article.comments.new(comment_params)
     @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
 
-        format.html { redirect_to article_url(@article), notice: "comment was successfully created." }
+        format.html { redirect_to article_url(@article), notice: 'comment was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { redirect_to article_url(@article), status: :unprocessable_entity }
@@ -33,7 +35,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  
   # def update
   #   @comment = Comment.find(params[:id])
   #   if @comment.update(comment_params)
@@ -56,6 +57,6 @@ class CommentsController < ApplicationController
   end
 
   def set_article
-    @article= Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
   end
 end

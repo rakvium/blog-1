@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # To deliver this notification:
 #
 # CommentNotification.with(post: @post).deliver_later(current_user)
@@ -23,6 +25,4 @@ class CommentNotification < Noticed::Base
     @user = User.find(@comment.user_id)
     "#{@user.user_name} commented on #{@article.title.truncate_words(10)}"
   end
-  #
-
 end

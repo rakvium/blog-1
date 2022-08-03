@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "places/show", type: :view do
+RSpec.describe 'places/show', type: :view do
   before(:each) do
     @place = assign(:place, Place.create!(
-      name: "Name",
-      latitude: "9.99",
-      longitude: "9.99"
-    ))
+                              name: 'Name',
+                              latitude: '9.99',
+                              longitude: '9.99'
+                            ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/9.99/)

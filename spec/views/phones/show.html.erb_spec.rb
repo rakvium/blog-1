@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "phones/show", type: :view do
+RSpec.describe 'phones/show', type: :view do
   before(:each) do
     @phone = assign(:phone, Phone.create!(
-      phone: "Phone",
-      country: "Country",
-      user: nil
-    ))
+                              phone: 'Phone',
+                              country: 'Country',
+                              user: nil
+                            ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Phone/)
     expect(rendered).to match(/Country/)

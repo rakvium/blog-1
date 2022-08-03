@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class AdminController < ApplicationController
-  def index
-  end
+  def index; end
 
   def show
     @q = Article.ransack(params[:q])
@@ -10,8 +11,7 @@ class AdminController < ApplicationController
     @users = User.all
   end
 
-  def edit
-  end
+  def edit; end
 
   def user_destroy
     @user = User.find(params[:id])
@@ -47,13 +47,11 @@ class AdminController < ApplicationController
     redirect_to users_path
   end
 
-  def new
-  end
+  def new; end
 
   private
 
   def secure_params
     params.require(:user).permit(:username, :email, :role)
   end
-  
 end

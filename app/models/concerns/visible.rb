@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Visible
   extend ActiveSupport::Concern
 
-  VALID_STATUSES = ['public', 'private', 'archived', 'members only']
+  VALID_STATUSES = ['public', 'private', 'archived', 'members only'].freeze
 
   included do
     validates :status, inclusion: { in: VALID_STATUSES }
@@ -20,5 +22,4 @@ module Visible
   def private?
     status == 'private'
   end
-
 end

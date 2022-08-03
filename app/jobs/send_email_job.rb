@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendEmailJob < ApplicationJob
   queue_as :default
 
@@ -5,4 +7,3 @@ class SendEmailJob < ApplicationJob
     ArticleMailer.approved_email(article).deliver_now
   end
 end
-

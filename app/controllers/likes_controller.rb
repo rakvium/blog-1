@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :get_dislike, only: %i[create]
   before_action :get_article
@@ -6,16 +8,13 @@ class LikesController < ApplicationController
 
   def create
     @like = current_user.likes.new(like_params)
-    
-    if !@like.save 
-      flash[:notice] = @like.errors.full_messages.to_sentence
-    end  
-    
-    @dislike.destroy if !@dislike.nil?
+
+    flash[:notice] = @like.errors.full_messages.to_sentence unless @like.save
+
+    @dislike&.destroy
     respond_to do |format|
       format.html { redirect_to article_url(@article) }
     end
-
   end
 
   def destroy
@@ -26,17 +25,17 @@ class LikesController < ApplicationController
     end
   end
 
-   private
+  private
 
-   def like_params
+  def like_params
     params.require(:like).permit(:likeable_id, :likeable_type, :locale)
-   end
+  end
 
-   def get_article
+  def get_article
     @article = Article.find_by(params[:likeable_id])
-   end
+  end
 
-   def get_dislike
+  def get_dislike
     @dislike = current_user.dislikes.find_by(params[:likeable_id])
-   end
+  end
 end

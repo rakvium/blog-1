@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ArticleMailer < ApplicationMailer
-  default from: "1surmavamariam@gmail.com"
+  default from: '1surmavamariam@gmail.com'
 
   def approved_email(article)
     @user = article.user
