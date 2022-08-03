@@ -1,0 +1,7 @@
+<div style='text-align:center; margin-top:61px'> 
+<h2> we have many categories to match your taste: choose from your favorite themes: <h2>
+<br>
+  <% @categories.each do |category| %>
+    <%= link_to category.name, category_path(category), {:class => "btn btn-outline-danger"} %>
+  <% end %>
+</div>

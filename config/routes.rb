@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     }
     resources :categories
 
-    root 'articles#index'
+    root 'static_pages#index'
     devise_scope :user do
       get '/users/sign_out' => 'devise/sessions#destroy'
     end

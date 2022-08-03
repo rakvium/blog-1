@@ -1,3 +1,4 @@
+<span> <%= link_to t("add location"), new_place_path , class: "btn btn-primary"%> <span>
 <div id="places">
   <% @user.places.each do |place| %>
     <%= render place %>
