@@ -20,9 +20,7 @@ class Comment < ApplicationRecord
   private
 
   def notify_recipient
-    unless current_user = self.article.user
       CommentNotification.with(comment: self, article: article).deliver(article.user)
-    end
   end
 
   def cleanup_notifications
