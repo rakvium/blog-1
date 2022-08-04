@@ -1,7 +1,5 @@
-<% n = 0 %>
   <% @user.phones.each do |phone| %>
   <div id="phones">
-    <%= n+= 1 %>
     <%= render phone %>
 
     <% if (user_signed_in?) && (current_user[:id] == params[:user_id].to_i)%>
@@ -17,7 +15,9 @@
     <br>
   <% end %>
 
-
+<div style="text-align:center; margin-top : 50px">
   <% if (user_signed_in?) && (current_user[:id] == params[:user_id].to_i)%>
     <%= link_to t("New phone"), new_user_phone_path(@user), class: "btn btn-primary"  %>
   <% end %>
+  <%= link_to t("back to profile"), user_path(@user), class: "btn btn-primary"%>
+</div>

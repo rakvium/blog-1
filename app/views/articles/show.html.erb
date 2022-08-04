@@ -14,14 +14,18 @@
       <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
       <input type ="hidden" name="like[likeable_id]" value="<%= @article.id %>">
       <input type ="hidden" name="like[likeable_type]" value="Article">
-      <input type ="submit" value="<%= t(:like)%>" class="btn btn-danger">
+      <button type ="submit" class= "btn">
+        <i class="bi bi-heart"  style="font-size: 1.5em; color: grey; "></i>
+      </button>
+
     </form>
   <%else%>
-    <form action="<%= like_path(like)%>" method="post">
+    <form action="<%= like_path(like)%>" method="post" style="display:inline">
       <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
       <input type ="hidden" name="_method" value="DELETE">
-      <input type ="submit" value="<%= t(:liked)%>" class="btn btn-dark">
-    </form>
+      <button type ="submit" class= "btn">
+      <i class="bi bi-heart-fill"  style="font-size: 1.5em; color: red; "></i>
+      </button>    </form>
   <%end%>
 <%end%>
 
@@ -32,19 +36,24 @@
       <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
       <input type ="hidden" name="dislike[dislikeable_id]" value="<%= @article.id %>">
       <input type ="hidden" name="dislike[dislikeable_type]" value="Article">
-      <input type ="submit" value="<%= t(:hate)%>" class="btn btn-danger">
+      <button type ="submit" class= "btn" >
+        <i class="bi bi-heartbreak" style="font-size: 1.5em; color: grey; "></i>
+      </button>
     </form>
     <%else%>
-    <form action="<%= dislike_path(dislike)%>" method="post">
+    <form action="<%= dislike_path(dislike)%>" method="post" style="display:inline">
       <input type ="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
       <input type ="hidden" name="_method" value="DELETE">
-      <input type ="submit" value="<%= t(:hated)%>" class="btn btn-dark">
-    </form>  
+      <button type ="submit" class= "btn" >
+        <i class="bi bi-heartbreak-fill"  style="font-size: 1.5em; color: black; "></i>
+      </button> 
+     </form>  
   <%end%>
 <%end%>
 </div>
 <br>
-<div>
+<div     style= "padding: 1em; margin: 1em;">
+
  <%if user_signed_in?%>
     <%= render 'comments/form', submit_tag: "comment", article: @article, comment: @article.comments.build %>
   <%end%>  

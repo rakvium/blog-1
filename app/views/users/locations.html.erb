@@ -1,5 +1,8 @@
-<span> <%= link_to t("add location"), new_place_path , class: "btn btn-primary"%> <span>
+<span style="text-align:center"> 
+<%= link_to t("add location"), new_place_path , class: "btn btn-primary" if user_signed_in? && current_user == @user%>
+ </span>
 <div id="places">
+<% if @user.places.count > 0 %>
   <% @user.places.each do |place| %>
     <%= render place %>
     <% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
@@ -8,4 +11,8 @@
     </p>
     <% end %>
   <% end %>
+<%else%>
+  <p style="margin-top:100px"> <%= t("location unknown")%> <p>
+<%end%>
+  <%= link_to t("back to profile"), user_path(@user), class: "btn btn-primary"%>
 </div>

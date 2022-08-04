@@ -40,7 +40,9 @@ en:
   Sign up: Sign up
   log_out: "log out"
   edit: "edit"
+  Edit: Edit
   delete: "delete"
+  Delete: Delete
   categories: "categories"
   home: "home"
   eddit profile: "edit profile"
@@ -179,3 +181,9 @@ en:
   commented on: commented on
   sign in with google: sign in with google
   Didn't receive confirmation instructions?: Didn't receive confirmation instructions?
+  location unknown: location unknown
+  back to profile: back to profile
+  edited: edited
+  commented: commented
+  Update: Update
+  ago: ago
