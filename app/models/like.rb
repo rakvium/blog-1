@@ -12,9 +12,7 @@ class Like < ApplicationRecord
   private
 
   def notify_recipient
-    unless current_user = self.likeable.user
       LikeNotification.with(like: self, article: self.likeable).deliver(self.likeable.user)
-    end
   end
 
   def cleanup_notifications

@@ -12,9 +12,7 @@ class Dislike < ApplicationRecord
   private
 
   def notify_recipient
-    unless current_user = self.dislikeable.user
       DislikeNotification.with(dislike: self, article: self.dislikeable).deliver(self.dislikeable.user)
-    end
   end
 
   def cleanup_notifications
