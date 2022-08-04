@@ -2,7 +2,6 @@
 
 class DislikesController < ApplicationController
   before_action :get_like, only: %i[create]
-  before_action :get_article
 
   def create
     @dislike = current_user.dislikes.new(dislike_params)
@@ -11,15 +10,17 @@ class DislikesController < ApplicationController
 
     @like&.destroy
     respond_to do |format|
-      format.html { redirect_to article_url(@article) }
+      format.html { redirect_to @dislike.dislikeable }
     end
   end
 
   def destroy
     @dislike = current_user.dislikes.find(params[:id])
+    dislikeable = @dislike.dislikeable
+
     @dislike.destroy
     respond_to do |format|
-      format.html { redirect_to article_url(@article) }
+      format.html { redirect_to dislikeable }
     end
   end
 

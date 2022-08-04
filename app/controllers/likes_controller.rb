@@ -13,15 +13,16 @@ class LikesController < ApplicationController
 
     @dislike&.destroy
     respond_to do |format|
-      format.html { redirect_to article_url(@article) }
+      format.html { redirect_to @like.likeable }
     end
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
+    likeable = @like.likeable
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to article_url(@article) }
+      format.html { redirect_to likeable }
     end
   end
 
