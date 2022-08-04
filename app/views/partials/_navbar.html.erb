@@ -4,43 +4,24 @@
         <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
-        <li>
+        <li class="btn" style="color:white;">
             <%= link_to t("home"),
           root_path, class:"nav-link text-light" %>
         </li>
         
-        <li>
-          <%= link_to t("new article"),
-            new_article_path, class:"nav-link text-light" %>
-        </li>
-
-        <li>
-          <%= link_to t("explore"),
-            explore_articles_path, class:"nav-link text-light" %>
-        </li>
-
-        <li>
-          <%= link_to t("articles"),
-          articles_path, class:"nav-link text-light" %>
-          </li>
-
-        <li>
+        <li class="dropbtn btn" style="color:white; ">
           <%= link_to t("categories"),
           categories_path, class:"nav-link text-white" %>
         </li>
             
-        <li>
+        <li class="dropbtn btn" style="color:white;">
           <%if current_user.avatar.nil? %>
             <%= link_to image_tag("#{current_user.avatar}", :height => 40, :width=> 40, :alt => 'profile', :title => 'profile'), user_path(current_user), :class => 'nav-link text-light'%>
           <%else%>
             <%= link_to t("profile"), user_path(current_user), :class => 'nav-link text-light'%>
           <%end%>
-        </li>
-        <li>
-          <%= render 'layouts/notifications'%>
-        </li>
-
-        <li>     
+          <%= render 'partials/articles'%>
+        <li class="dropbtn btn" style="color:white;">     
           <% if policy(User).index? %>
             <%= link_to t("admin panel"),  admin_path(current_user), class:"nav-link text-light" %>
           <% end %>
@@ -51,6 +32,11 @@
         <li>
             <%= link_to t("home"),
           root_path, class:"nav-link text-light" %>
+        </li>
+
+        <li >
+        <%= link_to t("all articles"),
+        articles_path, class:"nav-link text-light" %>
         </li>
 
         <li>
@@ -83,14 +69,12 @@
           <li>
             <%= render 'partials/useroptions'%>
           </li>
+          <li >
+            <%= render 'layouts/notifications'%>
+          </li>
         <%end%>
       </ul>
     </div>
 
-      <% if user_signed_in? %>
-       <% if current_user.payed == true %>
-       <%= link_to t("members only"), members_only_articles_path, class:"nav-link text-light" %>
-      <% end %>
-      <% end %>
   </nav>
 </body>

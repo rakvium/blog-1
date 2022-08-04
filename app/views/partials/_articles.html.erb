@@ -1,0 +1,35 @@
+    <li class="btn nav-item dropdown">
+      <%= link_to t("articles"), articles_path, :class => 'nav-link text-light',:style=>"color:white;" %>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-lg-end dropdown-content" aria-labelledby="navbarDropdown">
+      <li class="dropdown-item">
+        <%= link_to t("new article"),
+          new_article_path, class:"nav-link text-dark" %>
+      </li>
+
+      <li class="dropdown-item">
+        <%= link_to t("explore"),
+          explore_articles_path, class:"nav-link text-dark" %>
+      </li>
+
+      <li class="dropdown-item">
+        <%= link_to t("all articles"),
+        articles_path, class:"nav-link text-dark" %>
+      </li>
+
+      
+        <% if current_user.payed == true %>
+          <li class="dropdown-item" >
+            <span >
+            <%= link_to t("members only"), members_only_articles_path, class:"nav-link text-dark", :style=>"background-color:salmon" %>
+            </span>
+          </li>  
+        <% end %>
+    </ul>
+  </li>
+
+
+
+
+ 
+

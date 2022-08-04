@@ -7,19 +7,19 @@
     <%end%>
   </ul>
   
-    <%= link_to t("contact"), user_phones_path(@user), {:class => "btn btn-dark"}%> 
+    <%= link_to t("contact"), user_phones_path(@user), {:class => "btn btn-primary"}%> 
 
-    <%= link_to t('locations'), user_locations_path, {:class => "btn btn-dark"}%>
+    <%= link_to t('locations'), user_locations_path, {:class => "btn btn-primary"}%>
 
 <% if user_signed_in? && (current_user == @user || current_user.role == 'admin') %>
-    <%= link_to t("add location"), new_place_path,  {:class => "btn btn-dark"} %>
 
-  <%= link_to t("create new article"), new_article_path,  {:class => "btn btn-light"} %>
+  <%= link_to t("create new article"), new_article_path,  {:class => "btn btn-dark"} %>
 
 <% end %>
-
-
-
+<br>
+<% if @user.articles.count > 0 && current_user == @user%>
+<h1>your articles:</h1>
+<% end %>
 <%= render 'articles/articles', articles: @articles %>
 
 

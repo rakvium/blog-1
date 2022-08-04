@@ -8,6 +8,9 @@
             pricing_path, class:"nav-link text-danger" %>
         </li>
         <li class="dropdown-item">
+         <%= link_to t("profile"), user_path(current_user), :class => 'nav-link text-dark'%>
+        </li>
+        <li class="dropdown-item">
           <%= link_to t("edit profile"),
             edit_user_registration_path, class:"nav-link text-dark" %>
         </li>

@@ -63,10 +63,15 @@ body{
  }
  #articles{
   display:block;
-  background-color: #ffffff;
+  background-color: rgba(226, 240, 255, 0.711);
   border-collapse: separate;
+  padding: 30px;
   border-spacing: 8px; 
   width: 1250px;
+  color:rgb(9, 9, 9);
+  border-style:solid;
+  border-width: 10px;
+  border-color: #ffffff;
 }
 
  .aticlestable{
@@ -193,4 +198,9 @@ body{
   *:first-child + html .digg_pagination {
     overflow: hidden; 
 }
+
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
 

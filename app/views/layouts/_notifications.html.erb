@@ -1,6 +1,6 @@
 <% if current_user %>
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle " style="font-size: 1.5em; color: black;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <span class="badge rounded-pill bg-danger" >
         <%= @unread.count >= 9 ? "9+" : @unread.count %> <i class="bi bi-suit-heart-fill" ></i>
       </span>
@@ -15,7 +15,7 @@
         </li>
       <% elsif @read.count + @unread.count == 0 %>
         <li class="dropdown-item">
-          No notifications yet.
+         <%= t("No notifications yet")%>.
         </li>
       <% end %>
       <% @read.each do |notification| %>
@@ -24,3 +24,5 @@
     </ul>
   </li>
 <% end %>
+
+
