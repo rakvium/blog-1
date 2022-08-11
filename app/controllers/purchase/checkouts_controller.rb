@@ -26,8 +26,7 @@ module Purchase
     end
 
     def success
-      session = Stripe::Checkout::Session.retrieve(params[:session_id])
-      @customer = Stripe::Customer.retrieve(session.customer)
+      @customer =current_user
     end
   end
 end
