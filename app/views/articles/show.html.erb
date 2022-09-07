@@ -6,7 +6,7 @@
   %> 
 </p>
 
-<%= link_to "get pdf", article_pdf_path(@article)%>
+<%= link_to "get pdf", article_pdf_path(@article), target: :_blank%>
 
 <div class="reactions"> 
   <p> likes:<%= @article.likes.count%> dislikes:<%= @article.dislikes.count%> <p>

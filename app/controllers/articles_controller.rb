@@ -91,8 +91,6 @@ class ArticlesController < ApplicationController
       type: "application/pdf",
       disposition: "inline"
     )
-    
-    
   end
 
   private
