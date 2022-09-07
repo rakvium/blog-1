@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   include ActiveModel::Dirty
-  before_action :set_article, only: %i[update]
+  before_action :set_article, only: %i[update pdf]
   before_action :check_if_changed, only: %i[update]
 
   def index
@@ -69,6 +69,30 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
       format.js   { render layout: false }
     end
+  end
+
+  def pdf
+    
+    pdf = Prawn::Document.new
+
+    begin
+      pdf.text "Author: #{@article.user.user_name}"
+      # pdf.text @article.title
+
+      sql = "Select body from action_text_rich_texts where id = #{@article.id}"
+      records_array = ActiveRecord::Base.connection.execute(sql)
+      # binding.irb
+      pdf.text records_array.values.join
+    rescue
+      pdf.text "SORRY, blog language not supported"
+    end
+    send_data(pdf.render,
+      filename: "#{@article.title}.pdf",
+      type: "application/pdf",
+      disposition: "inline"
+    )
+    
+    
   end
 
   private

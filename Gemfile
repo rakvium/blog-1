@@ -109,3 +109,5 @@ gem 'whenever', require: false
 gem 'geocoder'
 
 gem 'noticed', '~> 1.5'
+
+gem "prawn", "~> 2.4"

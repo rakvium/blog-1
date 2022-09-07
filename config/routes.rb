@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       get '/users/sign_out' => 'devise/sessions#destroy'
     end
 
+    get 'articles/pdf/:id', to: 'articles#pdf', as: 'article_pdf'
+
     resources :articles do
       resources :comments
       collection do
