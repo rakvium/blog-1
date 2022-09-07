@@ -5,6 +5,10 @@
 <p class='author'> author : <%= link_to @article.user.email.split("@")[0], user_path(@article.user), {:class => "btn btn-outline-secondary"}
   %> 
 </p>
+<%if user_signed_in?%>
+ <%= link_to "get a PDF", article_path(@article, format: :pdf), {:class => "btn btn-info"}%>
+ <br>
+<%end%>
 <div class="reactions"> 
   <p> likes:<%= @article.likes.count%> dislikes:<%= @article.dislikes.count%> <p>
 <%if user_signed_in?%>

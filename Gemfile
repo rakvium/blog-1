@@ -109,3 +109,7 @@ gem 'whenever', require: false
 gem 'geocoder'
 
 gem 'noticed', '~> 1.5'
+
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary", group: :development
+gem "wkhtmltopdf-heroku", group: :production

@@ -21,7 +21,15 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.order('created_at DESC').paginate(page: params[:page], per_page: 3)
     @comment = Comment.new
     mark_notifications_as_read
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Post", template: "articles/article", formats: [:html], disposition: :inline
+      end
+    end
   end
+
+
 
   def new
     @categories = Category.all
