@@ -111,3 +111,5 @@ gem 'geocoder'
 gem 'noticed', '~> 1.5'
 
 gem "prawn", "~> 2.4"
+
+gem 'htmlentities', '~> 4.3', '>= 4.3.4'

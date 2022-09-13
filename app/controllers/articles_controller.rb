@@ -79,10 +79,7 @@ class ArticlesController < ApplicationController
       pdf.text "Author: #{@article.user.user_name}"
       # pdf.text @article.title
 
-      sql = "Select body from action_text_rich_texts where id = #{@article.id}"
-      records_array = ActiveRecord::Base.connection.execute(sql)
-      # binding.irb
-      pdf.text records_array.values.join
+      pdf.text @article.body.to_plain_text
     rescue
       pdf.text "SORRY, blog language not supported"
     end
