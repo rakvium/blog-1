@@ -24,7 +24,11 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Post", template: "articles/article", formats: [:html], disposition: :inline
+        render pdf: [@article.id, @article.title].join('-'),
+        template: "articles/article",
+        formats: [:html],
+        disposition: :inline,
+        layout: 'pdf'
       end
     end
   end

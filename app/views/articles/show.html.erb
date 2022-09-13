@@ -6,7 +6,7 @@
   %> 
 </p>
 <%if user_signed_in?%>
- <%= link_to "get a PDF", article_path(@article, format: :pdf), {:class => "btn btn-info"}%>
+ <%= link_to t("get a PDF"), article_path(@article, format: :pdf), target: :_blank %>
  <br>
 <%end%>
 <div class="reactions"> 
